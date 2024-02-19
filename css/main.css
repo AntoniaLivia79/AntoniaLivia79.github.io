@@ -1,10 +1,8 @@
 body {
-    margin: 60px auto;
-    width: 70%;
     color: #eee;
     background: #121212;
     font: 100% system-ui;
 }
 a {
-    color:#809fff;
+    color: #809fff;
 }
