@@ -17,6 +17,26 @@
         		<h1>Antonia's Attic</h1>
                 <img src="/assets/avatar.png" style="width: 30vw; min-width: 140px;">
 				<p>This is my blog page where I record the projects I am working on.</p>
+				<h2>miniCPM (pretty lights and old school menus) - 25 March 2024</h2>
+				<img src="/assets/miniCPM-powerled.png" style="width: 20vw; min-width: 140px;">
+				<p> I have a habit of running off to my homelab room to try out ideas straight after breakfast and this morning I finished my porridge and snuck off to add a power LED light to the miniCPM. It was nothing fancy, I just connected to LED to the 3.3v and GND pins, using a 200 ohm resistor to prevent an excessive load.</p>
+				<p> I plan to add two more LEDs to the front panel. A 'host' LED to tell me if the RunCPM Arduino sketch is running and a 'terminal' LED to tell me if the Pi has booted properly.</p>
+				<p> Shortly after I built the miniCPM I had the idea to use the Pi OS to run a collection of CLI tools (e.g. rss reader and an email client) and allow me to switch between the CP/M terminal and linux quickly. I ended up writing a small Python script to provide a simple interface from which I could navigate my CLI tools using preprepared shell scripts. I wanted an interface that looked quite 'retro' and came up with a menu system.</p>
+				<img src="assets/mini-cpm-menu-1.png" style="width: 50vw; min-width: 140px;">
+				<img src="assets/mini-cpm-menu-2.png" style="width: 50vw; min-width: 140px;">
+				<p> The menu starts the CLI tools as child processes using the python subprocess library and return the user to the menu after the CLI tool is closed down.</p>
+				<pre>
+					<code>
+    				def execute_script(script_name):
+    				try:
+        				subprocess.run(f'bash {script_name}', shell=True, check=True)
+    				except subprocess.CalledProcessError as e:
+						# Handle any errors if the script fails
+        				print(f'Error executing {script_name}: {e}')
+        			return
+					</code>
+				</pre>
+				<p> I have made the full code available on GitHub <a href="https://github.com/AntoniaLivia79/miniCPM-menu/">here</a></p>
 				<h2>miniCPM - 13 March 2024</h2>
 				<img src="/assets/miniCPM-manual.png" style="width: 20vw; min-width: 140px;">
 				<p> As a child in the late seventies/ early eighties I was obsessed with computers. This obsession began with a trip to the computer lab at the University of East Anglia and my father kindly buying me a TI-99/4A microcomputer. Around this time BBC microcomputers were purchased by my high school, replacing their CP/M based Research Machines 380Z microcomputer. I remember giving up my lunch breaks with a friend to port the school's 380Z Basic programs over to BBC Basic. Sadly I never got to use that 380Z again but was re-united with one at the Cambridge Computer and Video Game museum last year.</p>
