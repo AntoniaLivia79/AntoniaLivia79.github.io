@@ -2,54 +2,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Antonia Livia</title>
+		<title>AntoniaLivia79</title>
         <!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 	</head>
 	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-    		</ul>
-		</nav>
 		<div class="container">
     		<div class="blurb">
-        		<h1>Antonia's Attic</h1>
-				<h2>miniCPM (pretty lights and old school menus) - 25 March 2024</h2>
-				<img src="/assets/minicpm-powerled.png" style="width: 50vw; min-width: 140px;">
-				<p> I have a habit of running off to my homelab room to try out ideas straight after breakfast. This morning I finished my porridge and snuck off to add a power LED light to the miniCPM. It was nothing fancy, I just connected an LED to the Pi Zero 3.3v and GND GPIO pins, using a 200 ohm resistor to prevent an excessive load.</p>
-				<p> I plan to add two more LEDs to the front panel. A 'host' LED to tell me if the RunCPM Arduino sketch is running and a 'terminal' LED to tell me if the Pi has booted properly.</p>
-				<p> Shortly after I built the miniCPM I had the idea to use the Pi OS to run a collection of CLI tools (e.g. rss reader and an email client) and allow me to switch between the CP/M terminal and Linux quickly. I ended up writing a small Python script to provide a simple interface from which I could navigate my CLI tools using shell scripts. I wanted an interface that looked quite 'retro' and came up with this menu system.</p>
-				<img src="assets/mini-cpm-menu-1.png" style="width: 50vw; min-width: 140px;">
-				<p> Selecting the Debian Linux option takes you to the CLI tools installed to the Pi OS.</p>
-				<img src="assets/mini-cpm-menu-2.png" style="width: 50vw; min-width: 140px;">
-				<p> The menu starts the CLI tools as child processes using the python subprocess library and returns the user back to the menu after the CLI tool is closed down.</p>
-				<pre>
-					<code>
-    				def execute_script(script_name):
-    				try:
-        				subprocess.run(f'bash {script_name}', shell=True, check=True)
-    				except subprocess.CalledProcessError as e:
-						# Handle any errors if the script fails
-        				print(f'Error executing {script_name}: {e}')
-        			return
-					</code>
-				</pre>
-				<p> I have made the full code available on GitHub <a href="https://github.com/AntoniaLivia79/miniCPM-menu/">here</a></p>
-				<h2>miniCPM - 13 March 2024</h2>
-				<img src="/assets/miniCPM-manual.png" style="width: 20vw; min-width: 140px;">
-				<p> As a child in the late seventies/ early eighties I was obsessed with computers. This obsession began with a trip to the computer lab at the University of East Anglia and my father kindly buying me a TI-99/4A microcomputer. Around this time BBC microcomputers were purchased by my high school, replacing their CP/M based Research Machines 380Z microcomputer. I remember giving up my lunch breaks with a friend to port the school's 380Z Basic programs over to BBC Basic. Sadly I never got to use that 380Z again but was re-united with one at the Cambridge Computer and Video Game museum last year.</p>
-				<img src="/assets/RM380Z.png" style="width: 50vw; min-width: 140px;">
-				<p> For twenty years I worked as a backend software engineer, mostly on linux systems, and I am interested in the history of computing. During the pandemic I passed the time by watching reruns of the US PBS show Computer Chronicles on Twitch and became interested in CP/M (the show's co-host was Gary Kildall, the creator of CP/M). I had the idea to create a desktop machine with which I could experiment with CP/M and I was looking forward to playing some Infocom adventures on it, as I learnt these were available for CP/M 2.2. As I am not working I was reluctant to purchase one of the Z80 kits, which are popular these days, or buy an authentic machine, due to cost. Fortunately I was given an Amazon voucher as a gift which bought me an Arduino Due microcontroller and with the wonderful Due compatible CP/M emulator <a href="https://github.com/MockbaTheBorg/RunCPM/">RunCPM</a> I was able to create a CP/M 2.2 machine that I could connect to over the Arduino serial port.</p>
-				<p> I had become inspired by Raspberry Pi projects to emulate vintage computers popular when I was a child so I decided to bundle my Arduino CP/M machine with a Raspberry Pi Zero acting as a client interface, using minicom as the terminal emulator. There was a bare metal terminal project available for the Pi Zero but, at the time, it did not support the usb serial connection I was using for my prototype. As I only had a day for the build I settled for minicom running on Raspberry Pi OS Lite. I also added a small usb hub board, as the usb ports available on the Pi are limited and a soft shutdown button (driven by a python script).</p>
-				<img src="/assets/miniCPM-inside.png" style="width: 50vw; min-width: 140px;">
-				<p> I needed a name for my machine so I have called it miniCPM.</p>
-				<img src="/assets/miniCPM-front.png" style="width: 50vw; min-width: 140px;">
-				<p> Now it is built I have a small CP/M box to play around with Z80 development (Aztec-C, Pascal, Lisp) and play adventure games on.</p>
-				<img src="/assets/CPM-boot.png" style="width: 50vw; min-width: 140px;">
-				<p> I may come back to this project in the future to add other features such as a power led.</p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
+        		<h3>Antonia's Space</h3>
+                <li>Password Manager <code>pass</code></li>
+                <ul>
+                    <li><code>pass insert service/user</code> add credentials to password store</li>
+                    <li><code>pass service/user</code> display credentials from password store</li>
+                </ul>
+                <li>Terminal <code>fish</code></li>
+                <li>Terminal Multiplexer <code>tmux</code></li>
+                <li>Tmux Layout Manager <code>tmuxifier</code></li>
+                <li>Development Environment/ Text Editor <code>nvim</code></li>
+                <li>File Browser <code>ranger</code></li>
+                <li>Knowledge Base <code>joplin</code></li>
+                <li>System Monitor <code>htop</code></li>
+                <li>Cloud Storage <code>gdrive</code></li>
+                <li>Non-Web Browser <code>bombadillo</code></li>
+                <ul>
+                    <li><code>gemini://geminiprotocol.net:1965/</code> Main project page for Project Gemini</li>
+                    <li><code>gopher://i-logout.cz/1/bongusta/</code> Content Aggregator for gopherspace</li>
+                </ul>
+                <li>Plasma Configuration <code>konsave</code></li>
+                <li>Launcher/ Browser <code>rofi</code></li>
+            </div>
+		</div>
 		<footer>
             <ul>
         		<li><a href="https://github.com/antonialivia79/">GitHub</a></li>
