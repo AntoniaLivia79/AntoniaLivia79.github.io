@@ -1,31 +1,37 @@
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>AntoniaLivia79</title>
-        <!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dracula Vaporwave</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            @font-face {
+                font-family: 'NerdFont';
+                src: url('MononokiNerdFont-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+    </head>
+
 	<body>
 		<div class="container">
     		<div class="blurb">
         		<h3>Antonia's Space</h3>
-                <li>Password Manager <code>pass</code></li>
+                <h4>Password Manager <code>pass</code></h4>
                 <ul>
                     <li><code>pass insert service/user</code> add credentials to password store</li>
                     <li><code>pass service/user</code> display credentials from password store</li>
                 </ul>
-                <li>Terminal <code>fish</code></li>
+                <h4>Terminal <code>fish</code></h4>
                 <ul>
                     <li><code>fish_config</code> open fish configuration</li>
-                    <li><code>set -U fish_greeting "Hello, Antonia"</code> set greeting</li>
                 </ul>
-                <li>Terminal Multiplexer <code>tmux</code></li>
+                <h4>Terminal Multiplexer <code>tmux</code></h4>
                 <ul>
-                    <li><code>tmux new -s sessionname</code> create new session</li>
-                    <li><code>tmux attach -t sessionname</code> attach to session</li>
-                    <li><code>tmux ls</code> list sessions</li>
-                    <li><code>tmux kill-session -t sessionname</code> kill session</li>
                     <li><code>Ctrl + b</code> prefix key</li>
                     <li><code>Ctrl + b, c</code> create window</li>
                     <li><code>Ctrl + b, n</code> next window</li>
@@ -38,13 +44,13 @@
                     <li><code>Ctrl + b, x</code> kill pane</li>
                     <li><code>Ctrl + b, d</code> detach session</li>
                 </ul>
-                <li>Tmux Layout Manager <code>tmuxifier</code></li>
+                <h4>Tmux Layout Manager <code>tmuxifier</code></h4>
                 <ul>
                     <li><code>tmuxifier new sessionname</code> create new session</li>
                     <li><code>tmuxifier load sessionname</code> load session</li>
                     <li><code>tmuxifier edit sessionname</code> edit session</li>
                 </ul>
-                <li>Development Environment/ Text Editor <code>nvim</code></li>
+                <h4>Development Environment/ Text Editor <code>nvim</code></h4>
                 <ul>
                     <li><code>:e filename</code> open file</li>
                     <li><code>:w</code> save file</li>
@@ -53,7 +59,7 @@
                     <li><code>:q!</code> close file without saving</li>
                     <li><code>:e!</code> reload file</li>
                 </ul>
-                <li>File Browser <code>ranger</code></li>
+                <h4>File Browser <code>ranger</code></h4>
                 <ul>
                     <li><code>h</code> move left</li>
                     <li><code>j</code> move down</li>
@@ -69,7 +75,7 @@
                     <li><code>Ctrl + p</code> preview file</li>
                     <li><code>Ctrl + h</code> show help</li>
                 </ul>
-                <li>Knowledge Base <code>joplin</code></li>
+                <h4>Knowledge Base <code>joplin</code></h4>
                 <ul>
                     <li><code>Ctrl + n</code> new note</li>
                     <li><code>Ctrl + s</code> save note</li>
@@ -77,32 +83,36 @@
                     <li><code>Ctrl + e</code> edit note</li>
                     <li><code>Ctrl + d</code> delete note</li>
                 </ul>
-                <li>System Monitor <code>htop</code></li>
-                <br />
-                <li>Cloud Storage <code>gdrive</code></li>
+                <h4>System Monitor <code>htop</code></h4>
+                <h4>Cloud Storage <code>gdrive</code></h4>
                 <ul>
                     <li><code>gdrive list</code> list files</li>
                     <li><code>gdrive upload filename</code> upload file</li>
                     <li><code>gdrive download fileid</code> download file</li>
                     <li><code>gdrive delete fileid</code> delete file</li>
                 </ul>
-                <li>Non-Web Browser <code>bombadillo</code></li>
+                <h4>Non-Web Browser <code>bombadillo</code></h4>
                 <ul>
                     <li><code>gemini://geminiprotocol.net:1965/</code> Main project page for Project Gemini</li>
                     <li><code>gopher://i-logout.cz/1/bongusta/</code> Content Aggregator for gopherspace</li>
                     <li><code>gopher://gopher.floodgap.com/1/gemini</code> Floodgap Systems Gemini Server</li>
                 </ul>
-                <li>Plasma Configuration <code>konsave</code></li>
+                <h4>Plasma Configuration <code>konsave</code></h4>
                 <ul>
                     <li><code>konsave -s</code> save current configuration</li>
                     <li><code>konsave -l</code> load saved configuration</li>
                 </ul>
-                <li>Launcher/ Browser <code>rofi</code></li>
+                <h4>Launcher <code>rofi</code></h4>
                 <ul>
                     <li><code>rofi -show run</code> run command</li>
                     <li><code>rofi -show drun</code> open application</li>
                     <li><code>rofi -show window</code> switch window</li>
                     <li><code>rofi -show ssh</code> connect to server</li>
+                </ul>
+                <h4>RSS reader <code>newsboat</code></h4>
+                <h4>Weather Monitor <code>wttr.in</code></h4>
+                <ul>
+                    <li><code>curl wttr.in/Peterborough?1nF</code> weather for today</li>
                 </ul>
             </div>
 		</div>
