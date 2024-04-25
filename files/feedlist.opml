@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Feeds" text="Feeds" description="Feeds" type="folder">
+      <outline title="Technology" text="Technology" description="Technology" type="folder">
+        <outline title="Pixelated Dwarf" text="Pixelated Dwarf" description="Pixelated Dwarf" type="rss" xmlUrl="https://pixelateddwarf.com/feed" htmlUrl="https://pixelateddwarf.com/"/>
+        <outline title="IEEE Spectrum" text="IEEE Spectrum" description="IEEE Spectrum" type="rss" xmlUrl="https://spectrum.ieee.org/feeds" htmlUrl="https://spectrum.ieee.org/"/>
+        <outline title="Hackaday" text="Hackaday" description="Hackaday" type="rss" xmlUrl="https://hackaday.com/feed" htmlUrl="https://hackaday.com"/>
+        <outline title="How-To Geek" text="How-To Geek" description="How-To Geek" type="rss" xmlUrl="https://howtogeek.com/feed" htmlUrl="https://www.howtogeek.com"/>
+      </outline>
+      <outline title="News" text="News" description="News" type="folder">
+        <outline title="Ars Technica" text="Ars Technica" description="Ars Technica" type="rss" xmlUrl="https://feeds.arstechnica.com/arstechnica/index" htmlUrl="https://arstechnica.com"/>
+        <outline title="Slashdot" text="Slashdot" description="Slashdot" type="rss" xmlUrl="https://rss.slashdot.org/Slashdot/slashdotMain" htmlUrl="https://slashdot.org/"/>
+        <outline title="BBC" text="BBC" description="BBC" type="rss" xmlUrl="https://feeds.bbci.co.uk/news/rss.xml?edition=int" htmlUrl="https://www.bbc.co.uk/news"/>
+        <outline title="Science" text="Science" description="Science" type="rss" xmlUrl="https://www.sciencenews.org/feed" htmlUrl="https://www.sciencenews.org"/>
+        <outline title="Boing Boing" text="Boing Boing" description="Boing Boing" type="rss" xmlUrl="https://boingboing.net/feed" htmlUrl="https://boingboing.net/"/>
+        <outline title="The Latest TV Reviews &amp; News | Den of Geek" text="The Latest TV Reviews &amp; News | Den of Geek" description="The Latest TV Reviews &amp; News | Den of Geek" type="rss" xmlUrl="https://denofgeek.com/uk/feeds/tv" htmlUrl="https://www.denofgeek.com/tv/"/>
+        <outline title="Our Blog | GeekGirlCon" text="Our Blog | GeekGirlCon" description="Our Blog | GeekGirlCon" type="rss" xmlUrl="https://geekgirlcon.com/blog/feed" htmlUrl="https://geekgirlcon.com"/>
+      </outline>
+      <outline title="Knowledge" text="Knowledge" description="Knowledge" type="folder">
+        <outline title="Aeon" text="Aeon" description="Aeon" type="rss" xmlUrl="https://aeon.co/feed.rss" htmlUrl="https://aeon.co"/>
+        <outline title="Quanta Magazine" text="Quanta Magazine" description="Quanta Magazine" type="rss" xmlUrl="https://api.quantamagazine.org/feed/" htmlUrl="https://www.quantamagazine.org"/>
+      </outline>
+      <outline title="Open Source" text="Open Source" description="Open Source" type="folder">
+        <outline title="Planet Debian" text="Planet Debian" description="Planet Debian" type="rss" xmlUrl="https://planet.debian.org/rss20.xml" htmlUrl="https://planet.debian.org/"/>
+        <outline title="Liferea Blog" text="Liferea Blog" description="Liferea Blog" type="atom" xmlUrl="https://feeds.feedburner.com/LifereaBlog" htmlUrl="https://lzone.de/liferea/blog/"/>
+        <outline title="Planet GNOME" text="Planet GNOME" description="Planet GNOME" type="atom" xmlUrl="https://planet.gnome.org/atom.xml" htmlUrl="https://planet.gnome.org/"/>
+        <outline title="Tecmint: Linux Howtos, Tutorials &amp; Guides" text="Tecmint: Linux Howtos, Tutorials &amp; Guides" description="Tecmint: Linux Howtos, Tutorials &amp; Guides" type="rss" xmlUrl="https://tecmint.com/feed" htmlUrl="https://www.tecmint.com"/>
+        <outline title="It's FOSS" text="It's FOSS" description="It's FOSS" type="rss" xmlUrl="https://itsfoss.com/feed" htmlUrl="https://itsfoss.com/"/>
+        <outline title="Linux Journal - The Original Magazine of the Linux Community" text="Linux Journal - The Original Magazine of the Linux Community" description="Linux Journal - The Original Magazine of the Linux Community" type="rss" xmlUrl="https://linuxjournal.com/node/feed" htmlUrl="https://www.linuxjournal.com/"/>
+        <outline title="Linux.com" text="Linux.com" description="Linux.com" type="rss" xmlUrl="https://linux.com/feed" htmlUrl="https://www.linux.com"/>
+        <outline title="Linux Hints" text="Linux Hints" description="Linux Hints" type="rss" xmlUrl="https://linuxhint.com/feed" htmlUrl="https://linuxhint.com"/>
+      </outline>
+      <outline title="Podcasts" text="Podcasts" description="Podcasts" type="folder">
+        <outline title="EscapePod" text="EscapePod" description="EscapePod" type="atom" xmlUrl="https://escapepod.org/feed/atom/" htmlUrl="https://escapepod.org"/>
+      </outline>
+      <outline title="Music Blogs" text="Music Blogs" description="Music Blogs" type="folder">
+        <outline title="Gorilla vs. Bear" text="Gorilla vs. Bear" description="Gorilla vs. Bear" type="rss" xmlUrl="https://www.gorillavsbear.net/category/mp3/feed/" htmlUrl="https://www.gorillavsbear.net"/>
+        <outline title="Fluxblog" text="Fluxblog" description="Fluxblog" type="rss" xmlUrl="http://www.fluxblog.org/feed" htmlUrl="http://www.fluxblog.org"/>
+      </outline>
+      <outline title="Comics" text="Comics" description="Comics" type="folder">
+        <outline title="xkcd" text="xkcd" description="xkcd" type="atom" xmlUrl="https://xkcd.com/atom.xml" htmlUrl="https://xkcd.com/"/>
+      </outline>
+    </outline>
+  </body>
+</opml>
