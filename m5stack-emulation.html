@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>m5stack Emulation</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            @font-face {
+                font-family: 'NerdFont';
+                src: url('MononokiNerdFont-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+    </head>
+<body>
+    <h1>Setting up M5Stack Cardputer Emulator on Linux</h1>
+    <p>Follow these steps to set up an M5Stack Cardputer emulator on Linux and test MicroPython code before deployment.</p>
+    
+    <h2>1. Install ESP-IDF and ESP32 Tools</h2>
+    <ol>
+        <li><strong>Install prerequisites:</strong>
+            <pre><code>sudo apt update
+sudo apt install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0</code></pre>
+        </li>
+        <li><strong>Get ESP-IDF:</strong>
+            <pre><code>mkdir -p ~/esp
+cd ~/esp
+git clone --recursive https://github.com/espressif/esp-idf.git</code></pre>
+        </li>
+        <li><strong>Set up the environment:</strong>
+            <pre><code>cd ~/esp/esp-idf
+./install.sh
+. ./export.sh</code></pre>
+        </li>
+    </ol>
+    
+    <h2>2. Install QEMU for ESP32</h2>
+    <ol>
+        <li><strong>Clone and build QEMU for ESP32:</strong>
+            <pre><code>git clone https://github.com/espressif/qemu.git
+cd qemu
+./configure --target-list=xtensa-softmmu
+make
+sudo make install</code></pre>
+        </li>
+    </ol>
+    
+    <h2>3. Install MicroPython</h2>
+    <ol>
+        <li><strong>Clone the MicroPython repository:</strong>
+            <pre><code>git clone https://github.com/micropython/micropython.git
+cd micropython
+git submodule update --init</code></pre>
+        </li>
+        <li><strong>Build MicroPython for ESP32:</strong>
+            <pre><code>cd ports/esp32
+make submodules
+make</code></pre>
+        </li>
+        <li><strong>Flash MicroPython to QEMU:</strong>
+            <pre><code>qemu-system-xtensa -nographic -M esp32 -m 4M -drive file=build-GENERIC/firmware.bin,if=mtd,format=raw</code></pre>
+        </li>
+    </ol>
+    
+    <h2>4. Testing MicroPython Code</h2>
+    <ol>
+        <li><strong>Write a simple MicroPython script, e.g., <code>main.py</code>:</strong>
+            <pre><code>print("Hello, M5Stack Cardputer!")</code></pre>
+        </li>
+        <li><strong>Load and run the script on the emulator:</strong>
+            <pre><code>qemu-system-xtensa -nographic -M esp32 -m 4M -drive file=build-GENERIC/firmware.bin,if=mtd,format=raw -s -S</code></pre>
+        </li>
+        <li><strong>Use GDB to interact with the QEMU emulator:</strong>
+            <pre><code>xtensa-esp32-elf-gdb -ex "target remote localhost:1234" -ex "symbol-file build-GENERIC/application.elf"</code></pre>
+        </li>
+        <li><strong>In the GDB session, load your MicroPython script:</strong>
+            <pre><code>monitor load "main.py"
+monitor start</code></pre>
+        </li>
+    </ol>
+    
+    <h2>5. Additional Configuration</h2>
+    <p>For a more accurate emulation of the M5Stack Cardputer, you may need to configure specific peripherals and interfaces based on the hardware features listed in the provided documents.</p>
+</body>
+</html>
