@@ -98,3 +98,133 @@ footer {
     padding: 10px 12px;
     background-color: #141523;
 }
+
+/* Tokyo Night Omarchy theme overrides (appended to override previous palette) */
+/* Palette
+   bg: #1a1b26; panel: #24283b; fg: #c0caf5; dim: #565f89;
+   blue: #7aa2f7; cyan: #7dcfff; magenta: #bb9af7; green: #9ece6a; yellow: #e0af68; red: #f7768e; orange: #ff9e64
+*/
+
+/* Base */
+body {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+::selection {
+  background: #33467c;
+  color: #c0caf5;
+}
+
+/* Layout: make containers feel like terminal panes */
+.container {
+  background-color: #24283b;
+  border: 1px solid #3b4261;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(58, 64, 99, 0.4) inset;
+}
+
+.blurb {
+  line-height: 1.55;
+}
+
+header {
+  margin-bottom: 16px;
+}
+
+/* Headings with Tokyo Night accents */
+h1, h2 { color: #7aa2f7; }
+
+h3 { color: #bb9af7; }
+
+h4 { color: #9ece6a; }
+
+h5 { color: #7dcfff; }
+
+/* Text elements */
+p { color: #c0caf5; }
+
+ul, li { color: #c0caf5; }
+
+/* Links styled like terminal hyperlinks */
+a {
+  color: #7dcfff;
+  text-decoration: none;
+  border-bottom: 1px dotted #7dcfff;
+}
+
+a:hover,
+a:focus {
+  color: #bb9af7;
+  border-bottom-color: #bb9af7;
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #ff9e64;
+  outline-offset: 2px;
+}
+
+/* Inline code and code blocks to look like CLI */
+code {
+  background: #1f2335;
+  color: #c0caf5;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid #3b4261;
+}
+
+pre, pre code {
+  background: #1f2335;
+  color: #c0caf5;
+}
+
+pre {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #3b4261;
+  overflow: auto;
+}
+
+/* Footer subtle tint */
+footer {
+  color: #7aa2f7;
+}
+
+/* Space Trader components in Tokyo Night palette */
+.game-screen {
+  border: 1px solid #3b4261;
+  background-color: #1a1b26;
+}
+
+.menu-options { margin: 12px 0; }
+
+.menu-options button {
+  background-color: #24283b;
+  color: #c0caf5;
+  border: 1px solid #7aa2f7;
+  border-radius: 8px;
+}
+
+.menu-options button:hover {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+}
+
+.status-bar {
+  background-color: transparent;
+  border-left: 4px solid #7dcfff;
+  color: #c0caf5;
+}
+
+.log {
+  border: 1px solid #3b4261;
+  background-color: #1a1b26;
+}
+
+/* Small helper: horizontal rules for separation if used */
+hr {
+  border: none;
+  border-top: 1px solid #3b4261;
+  margin: 16px 0;
+}
