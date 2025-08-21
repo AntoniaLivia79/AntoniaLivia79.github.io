@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CLI Cheatsheet</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            @font-face {
+                font-family: 'NerdFont';
+                src: url('MononokiNerdFont-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+    </head>
+
+	<body>
+		<div class="container">
+    		<div class="blurb">
+        		<h3>CLI Cheatsheet</h3>
+                <h4>Password Manager <code>pass</code></h4>
+                <ul>
+                    <li><code>pass insert service/user</code> add credentials to password store</li>
+                    <li><code>pass service/user</code> display credentials from password store</li>
+                </ul>
+                <h4>Terminal <code>fish</code></h4>
+                <ul>
+                    <li><code>fish_config</code> open fish configuration</li>
+                </ul>
+                <h4>Windows Manager <code>sway</code></h4>
+                <ul>
+                    <li><code>Mod + enter</code> open terminal</li>
+                    <li><code>Mod + e</code> open file explorer</li>
+                    <li><code>Mod + d</code> open launcher</li>
+                    <li><code>Mod + Shift + q</code> close window</li>
+                    <li><code>Mod + Shift + c</code> reload sway config</li>
+                    <li><code>Mod + Shift + e</code> exit sway</li>
+                    <li><code>Mod + r</code> resize window</li>
+                    <li><code>Mod + Shift + space</code> floating window</li>
+                    <li><code>Mod + 1 - 9</code> new workspace</li>
+                </ul>
+                <h4>Mind Mapper <code>h-m-m</code></h4>
+                <ul>
+                    <li><code>enter</code> create a new sibling to the active node</li>
+                    <li><code>tab</code> create a new child for the active node</li>
+                    <li><code>y</code> copy active node and descendants</li>
+                    <li><code>d</code> cut active node and descendants</li>
+                    <li><code>p</code> paste as descendants of the active node</li>
+                    <li><code>P</code> paste as siblings of the active node</li>
+                    <li><code>i</code> insert text to active node</li>
+                    <li><code>I</code> overwrite text in active node</li>
+                    <li><code>u</code> undo</li>
+                    <li><code>c</code> center active node on screen</li>
+                    <li><code>s/S</code> save existing/ save new</li>
+                    <li><code>q</code> quit</li>
+                    <li><code>?</code> show commands</li>
+                </ul>
+                <h4>Terminal Multiplexer <code>tmux</code></h4>
+                <ul>
+                    <li><code>Ctrl + b</code> prefix key</li>
+                    <li><code>Ctrl + b, c</code> create window</li>
+                    <li><code>Ctrl + b, n</code> next window</li>
+                    <li><code>Ctrl + b, p</code> previous window</li>
+                    <li><code>Ctrl + b, ,</code> rename window</li>
+                    <li><code>Ctrl + b, w</code> list windows</li>
+                    <li><code>Ctrl + b, %</code> split window vertically</li>
+                    <li><code>Ctrl + b, "</code> split window horizontally</li>
+                    <li><code>Ctrl + b, arrow key</code> move between panes</li>
+                    <li><code>left mouse + drag</code> move pane boundary</li>
+                    <li><code>Ctrl + b, x</code> kill pane</li>
+                    <li><code>Ctrl + b, d</code> detach session</li>
+                </ul>
+                <h4>Tmux Layout Manager <code>tmuxifier</code></h4>
+                <ul>
+                    <li><code>tmuxifier new sessionname</code> create new session</li>
+                    <li><code>tmuxifier load sessionname</code> load session</li>
+                    <li><code>tmuxifier edit sessionname</code> edit session</li>
+                </ul>
+                <h4>Development Environment/ Text Editor <code>nvim</code></h4>
+                <ul>
+                    <li><h5>Vim</h5></li>
+                    <ul>
+                    <li><code>:e filename</code> open file</li>
+                    <li><code>:w</code> save file</li>
+                    <li><code>:q</code> close file</li>
+                    <li><code>:wq</code> save and close file</li>
+                    <li><code>:q!</code> close file without saving</li>
+                    <li><code>:e!</code> reload file</li>
+                    <li><code>u</code> undo</li>
+                    <li><code>Ctrl + r</code> redo</li>
+                    <li><code>yy</code> copy line</li>
+                    <li><code>dd</code> cut line</li>
+                    <li><code>p</code> paste line</li>
+                    <li><code>/string</code> search for string</li>
+                    <li><code>n</code> next search result</li>
+                    <li><code>N</code> previous search result</li>
+                    <li><code>:%s/old/new/g</code> replace old with new</li>
+                    </ul>
+                    <li><h5>Telescope</h5></li>
+                    <ul>
+                      <li><code>Ctrl + f</code> find files</li>
+                      <li><code>Ctrl + g</code> find string</li>
+                      <li><code>Ctrl + b</code> find buffers</li>
+                      <li><code>:Telescope help</code> display help</li>
+                      <li><code>:Telescope find_files</code> find files</li>
+                      <li><code>:Telescope commands</code> find commands</li>
+                    </ul>
+                    <li><h5>NERDTree</h5></li>
+                    <ul>
+                      <li><code>:NERDTreeToggle</code> toggle file explorer</li>
+                      <li><code>:NERDTreeFind</code> find file in tree</li>
+                      <li><code>R</code> refresh tree</li>
+                      <li><code>m</code> open file menu</li>
+                      <li><code>o</code> open file</li>
+                      <li><code>t</code> open file in new tab</li>
+                      <li><code>i</code> open file in split</li>
+                      <li><code>s</code> open file in vsplit</li>
+                      <li><code>p</code> go to parent directory</li>
+                      <li><code>P</code> go to root directory</li>
+                      <li><code>?</code> display help</li>
+                      <li><code>q</code> close tree</li>
+                    </ul>
+                    <li><h5>Copilot</h5></li>
+                    <ul>
+                      <li><code>Ctrl + j</code> select next completion</li>
+                      <li><code>Ctrl + e</code> close completion</li>
+                      <li><code>Ctrl + y</code> confirm completion</li>
+                      <li><code>:Copilot auth</code> authorise Copilot using GitHub</li>
+                      <li><code>:Copilot setup</code> setup Copilot</li>
+                      <li><code>:Copilot status</code> display Copilot status</li>
+                      <li><code>:Copilot panel</code> show first 10 suggestions</li>
+                    </ul>
+                    <li><h5>Mason</h5></li>
+                    <ul>
+                      <li><code>i</code> install package</li>
+                      <li><code>u</code> update package</li>
+                      <li><code>:Mason</code> toggle Mason</li>
+                      <li><code>:MasonUpdate</code> update packages</li>
+                      <li><code>:MasonInstallAll</code> re-install all packages</li>
+                    </ul>
+                    <li><h5>Lazy</h5></li>
+                    <ul>
+                      <li><code>:Lazy</code> toggle Lazy package manager</li>
+                    </ul>
+                    <li><h5>Nvchad</h5></li>
+                    <ul>
+                      <li><code>Space</code> display shortcuts</li>
+                      <li><code>Space, c, h</code> display cheat sheet</li>
+                      <li><code>Space, f, f</code> find files</li>
+                      <li><code>Space + h</code> open horizontal terminal</li>
+                      <li><code>Ctrl + n</code> (nvimtree) toggle file explorer</li>
+                      <li><code>-</code> (nvimtree) navigate up one level of directory</li>
+                      <li><code>backspace</code> (nvimtree) close folder</li>
+                      <li><code>:Nvdash</code> display dashboard</li>
+                      <li><code>:Nvcheatsheet</code> display cheat sheet</li>
+                      <li><code>:NvuiToggle</code> toggle UI</li>
+                      <li><code>:NvuiClose</code> close UI</li>
+                      <li><code>:NvuiResize</code> resize UI</li>
+                      <li><code>:NvuiMove</code> move UI</li>
+                    </ul>
+                    <li><h5>Terminal</h5></li>
+                    <ul>
+                        <li><code>:term</code> open terminal in new tab</li>
+                        <li><code>:term <command></code> open terminal in new tab (and execute bash command)</li>
+                    </ul>
+                </ul>
+                <h4>File Browser <code>ranger</code></h4>
+                <ul>
+                    <li><code>h</code> move left</li>
+                    <li><code>j</code> move down</li>
+                    <li><code>k</code> move up</li>
+                    <li><code>l</code> move right</li>
+                    <li><code>yy</code> copy file</li>
+                    <li><code>dd</code> cut file</li>
+                    <li><code>pp</code> paste file</li>
+                    <li><code>Ctrl + x</code> open file</li>
+                    <li><code>Ctrl + r</code> rename file</li>
+                    <li><code>Ctrl + d</code> create directory</li>
+                    <li><code>Ctrl + u</code> toggle hidden files</li>
+                    <li><code>Ctrl + p</code> preview file</li>
+                    <li><code>Ctrl + h</code> show help</li>
+                </ul>
+                <h4>Knowledge Base <code>joplin</code></h4>
+                <ul>
+                    <li><code>Ctrl + n</code> new note</li>
+                    <li><code>Ctrl + s</code> save note</li>
+                    <li><code>Ctrl + o</code> open note</li>
+                    <li><code>Ctrl + e</code> edit note</li>
+                    <li><code>Ctrl + d</code> delete note</li>
+                </ul>
+                <h4>System Monitor <code>htop</code></h4>
+                <h4>Cloud Storage <code>gdrive</code></h4>
+                <ul>
+                    <li><code>gdrive list</code> list files</li>
+                    <li><code>gdrive upload filename</code> upload file</li>
+                    <li><code>gdrive download fileid</code> download file</li>
+                    <li><code>gdrive delete fileid</code> delete file</li>
+                </ul>
+                <h4>Non-Web Browser <code>bombadillo</code></h4>
+                <ul>
+                    <li><code>gemini://geminiprotocol.net:1965/</code> Main project page for Project Gemini</li>
+                    <li><code>gopher://i-logout.cz/1/bongusta/</code> Content Aggregator for gopherspace</li>
+                    <li><code>gopher://gopher.floodgap.com/1/gemini</code> Floodgap Systems Gemini Server</li>
+                </ul>
+                <h4>Plasma Configuration <code>konsave</code></h4>
+                <ul>
+                    <li><code>konsave -s</code> save current configuration</li>
+                    <li><code>konsave -l</code> load saved configuration</li>
+                </ul>
+                <h4>Launcher <code>rofi</code></h4>
+                <ul>
+                    <li><code>rofi -show run</code> run command</li>
+                    <li><code>rofi -show drun</code> open application</li>
+                    <li><code>rofi -show window</code> switch window</li>
+                    <li><code>rofi -show ssh</code> connect to server</li>
+                </ul>
+                <h4>RSS reader <code>newsboat</code></h4>
+                <h4>Weather Monitor <code>wttr.in</code></h4>
+                <ul>
+                    <li><code>curl wttr.in/Peterborough?1nF</code> weather for today</li>
+                </ul>
+            </div>
+		</div>
+	</body>
+</html>
