@@ -82,7 +82,8 @@ let game = {
     exploration: {
         currentEncounter: 0,
         totalEncounters: 0,
-        pendingEncounters: []
+        pendingEncounters: [],
+        betweenEncounters: false
     }
 };
 
