@@ -21,7 +21,7 @@ function setMenu(options) {
     menuEl.innerHTML = '';
     options.forEach((option, index) => {
         const button = document.createElement('button');
-        button.innerHTML = `${index + 1}. ${option.text}`;
+        button.innerHTML = `${option.text}`;
         button.onclick = option.action;
         menuEl.appendChild(button);
     });
