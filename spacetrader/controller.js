@@ -286,6 +286,7 @@ function explore() {
     game.exploration.pendingEncounters = [];
     game.exploration.currentEncounter = 0;
     game.exploration.totalEncounters = p.engine;
+    game.exploration.betweenEncounters = false;
 
     for (let i = 0; i < p.engine; i++) {
         game.exploration.pendingEncounters.push(
@@ -315,10 +316,38 @@ function processNextEncounter() {
 }
 
 function continueExploration() {
-    // Continue to next encounter
-    setTimeout(() => {
+    // Set state to show we're between encounters
+    game.exploration.betweenEncounters = true;
+    
+    const exp = game.exploration;
+    const isLastEncounter = exp.currentEncounter >= exp.totalEncounters;
+    
+    if (isLastEncounter) {
+        // Show return message
+        log("Returning to the Celastra Exchange");
+        setScreen("Returning to the Celastra Exchange");
+        setMenu([{ text: "Continue", action: () => proceedAfterEncounter() }]);
+    } else {
+        // Show travel message
+        log("Travelling to next sector...");
+        setScreen("Travelling to next sector...");
+        setMenu([{ text: "Continue", action: () => proceedAfterEncounter() }]);
+    }
+}
+
+function proceedAfterEncounter() {
+    // Reset between encounters state
+    game.exploration.betweenEncounters = false;
+    
+    const exp = game.exploration;
+    
+    if (exp.currentEncounter >= exp.totalEncounters) {
+        // All encounters processed, return to exchange
+        finishExploration();
+    } else {
+        // Continue to next encounter
         processNextEncounter();
-    }, 1000);
+    }
 }
 
 function finishExploration() {
