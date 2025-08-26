@@ -99,12 +99,6 @@ footer {
     background-color: #141523;
 }
 
-/* Tokyo Night Omarchy theme overrides (appended to override previous palette) */
-/* Palette
-   bg: #1a1b26; panel: #24283b; fg: #c0caf5; dim: #565f89;
-   blue: #7aa2f7; cyan: #7dcfff; magenta: #bb9af7; green: #9ece6a; yellow: #e0af68; red: #f7768e; orange: #ff9e64
-*/
-
 /* Base */
 body {
   background-color: #1a1b26;
@@ -116,7 +110,6 @@ body {
   color: #c0caf5;
 }
 
-/* Layout: make containers feel like terminal panes */
 .container {
   background-color: #24283b;
   border: 1px solid #3b4261;
@@ -132,7 +125,6 @@ header {
   margin-bottom: 16px;
 }
 
-/* Headings with Tokyo Night accents */
 h1, h2 { color: #7aa2f7; }
 
 h3 { color: #bb9af7; }
@@ -141,12 +133,10 @@ h4 { color: #9ece6a; }
 
 h5 { color: #7dcfff; }
 
-/* Text elements */
 p { color: #c0caf5; }
 
 ul, li { color: #c0caf5; }
 
-/* Links styled like terminal hyperlinks */
 a {
   color: #7dcfff;
   text-decoration: none;
@@ -165,7 +155,6 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Inline code and code blocks to look like CLI */
 code {
   background: #1f2335;
   color: #c0caf5;
@@ -186,12 +175,10 @@ pre {
   overflow: auto;
 }
 
-/* Footer subtle tint */
 footer {
   color: #7aa2f7;
 }
 
-/* Space Trader components in Tokyo Night palette */
 .game-screen {
   border: 1px solid #3b4261;
   background-color: #1a1b26;
@@ -222,9 +209,14 @@ footer {
   background-color: #1a1b26;
 }
 
-/* Small helper: horizontal rules for separation if used */
 hr {
   border: none;
   border-top: 1px solid #3b4261;
   margin: 16px 0;
+}
+
+img[src$="avatar.png"] {
+  border: 2px solid #bd93f9;      /* accent purple */
+  border-radius: 8px;              /* soft corners */
+  box-shadow: 0 0 10px rgba(189, 147, 249, 0.25); /* subtle glow */
 }
