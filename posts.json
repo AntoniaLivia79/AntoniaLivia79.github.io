@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2025-08-27",
+    "text": "An interesting You Tube film from 1972 of the Barbican estate in London. The Barbican is a brutalist residential complex in the centre of London, containing shops, gardens, restaurants, theatres and gallery spaces. I worked nearby during the several years I lived in London and would spend my lunch breaks either in the garden, restaurant or basement. Shown here, the strikingly orange painted basement always provided a quiet, calm space from the busy city. I would sit here coding my own projects or playing Discworld MUD. In the evenings it was a music and theatre venue. I remember seeing the Residents play here with my dear friend Andy. On Fridays, I would treat myself to a roast duck dinner in the restaurant and sometimes a book from it's bookshop. I never returned after the Pandemic, maybe it had changed as I had. I would soon leave London and start a new chapter of my life.",
+    "youtube": "https://youtu.be/vvXpvH99tic?feature=shared",
+    "images": [
+      { "src": "files/images/barbican_orange_hall.jpg", "alt": "The orange basement of the Barbican Centre" }
+    ]
+  },
+  {
+    "date": "2025-08-26",
+    "text": "A small project to create a storage display shelf for my wall. I found a bare wooden shelf unit from a craft outlet and stained it for a mahogany look. I also gave the shelves a coat of linseed oil to help preserve them. I am quite happy with the results.",
+    "images": [
+      { "src": "files/images/display_shelf.jpg", "alt": "A mahogany display shelf containing ephemera" }
+    ]
+  },
+  {
+    "date": "2025-08-25",
+    "text": "Two creators that have been an inspiration are Carol Shaw (Atari - River Raid) and Amy Briggs (Infocom - Plundered Hearts). I have watched some interesting films about Infocom recently. Text adventures were a significant part of my youth. I would recommend The Infocom documentary, especially as it contains an interview with Amy Briggs.",
+    "youtube": "https://youtu.be/OXNLWy7rwH4?feature=shared"
+  }
+]
