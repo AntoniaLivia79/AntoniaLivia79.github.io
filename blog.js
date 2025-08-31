@@ -44,6 +44,58 @@
     return null;
   }
 
+  // Very small sanitizer to allow only a subset of inline tags and safe attributes
+  function sanitizeHtml(input){
+    // Create a sandbox document fragment
+    const template = document.createElement('template');
+    template.innerHTML = String(input);
+    const allowedTags = new Set(['A','EM','STRONG','B','I','U','S','CODE','KBD','MARK','SMALL','SUB','SUP','SPAN','BR']);
+    const allowedAttrs = {
+      'A': new Set(['href','title','target','rel']),
+      'SPAN': new Set(['class'])
+    };
+    const showElements = (typeof NodeFilter !== 'undefined' && NodeFilter.SHOW_ELEMENT) ? NodeFilter.SHOW_ELEMENT : 1;
+    const walker = document.createTreeWalker(template.content, showElements, null);
+    let node = walker.currentNode;
+    while(node){
+      const el = node;
+      if(!allowedTags.has(el.tagName)){
+        // Replace disallowed element with its textContent
+        const text = document.createTextNode(el.textContent);
+        // Use replaceWith when available; otherwise, fall back for older browsers
+        if (typeof el.replaceWith === 'function') {
+          el.replaceWith(text);
+        } else if (el.parentNode) {
+          el.parentNode.insertBefore(text, el);
+          el.parentNode.removeChild(el);
+        }
+      } else {
+        // Clean attributes
+        [...el.attributes].forEach(attr=>{
+          const tagAllow = allowedAttrs[el.tagName];
+          if(!tagAllow || !tagAllow.has(attr.name)){
+            el.removeAttribute(attr.name);
+          }
+        });
+        // Extra safety for links
+        if(el.tagName === 'A'){
+          const href = el.getAttribute('href') || '';
+          // Disallow javascript: and data: (except data:image maybe, but not needed here)
+          const lower = href.trim().toLowerCase();
+          if(lower.startsWith('javascript:') || lower.startsWith('data:')){
+            el.removeAttribute('href');
+          } else {
+            // Ensure links open in new tab safely
+            el.setAttribute('target','_blank');
+            el.setAttribute('rel','noopener noreferrer');
+          }
+        }
+      }
+      node = walker.nextNode();
+    }
+    return template.innerHTML;
+  }
+
   function groupByDate(posts){
     const map = new Map();
     for(const p of posts){
@@ -66,9 +118,21 @@
     h.textContent = fmtDate(d);
     wrap.appendChild(h);
 
-    const textP = document.createElement('p');
-    textP.textContent = p.text || '';
-    wrap.appendChild(textP);
+    function addParagraph(text){
+      const textP = document.createElement('p');
+      let raw = String(text || '');
+      const urlRegex = /(https?:\/\/[^\s)]+)(?![^<]*>|[^&]*;)/g;
+      raw = raw.replace(urlRegex, (m)=>`<a href="${m}">${m}</a>`);
+      textP.innerHTML = sanitizeHtml(raw);
+      wrap.appendChild(textP);
+    }
+
+    if (Array.isArray(p.paragraphs) && p.paragraphs.length) {
+      p.paragraphs.forEach(addParagraph);
+    } else {
+      // Fallback to single text field for backward compatibility
+      addParagraph(p.text || '');
+    }
 
     const media = document.createElement('div');
     media.className = 'media';
