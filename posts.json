@@ -3,7 +3,8 @@
     "date": "2025-08-31",
     "paragraphs": [
                     "I picked up an RP2350 Pico 2 microcontroller from the Raspberry Pi store in Cambridge last weekend with a plan to combine it with an HDMI display and mechanical keyboard I had spare. I mounted the RP2350 in an Olimex rp2040-pico-pc motherboard and flashed the Pico 2 with the Picomite BASIC core (https://geoffg.net - the PicoMiteHDMIUSB core). Although this core is compatible with the rp2040-pico-pc board I did have to blind set the HDMI support option using the keyboard via the <code>option reset olimexusb</code> command. This set the necessary options to connect to the display via the Olimex HDMI port, after which I reset the Olimex board.",
-                    "The https://thebackshed.com forum provided useful information on how to implement this setup. For software I found the following forum useful: https://forum.clockworkpi.com. As the deck was running similar BASIC firmware to the Clockwork Pi PicoCalc handheld device, I was able to use the software written for this platform."],
+                    "The https://thebackshed.com forum provided useful information on how to implement this setup. For software I found the Clockwork Pi forum useful. As the deck was running similar BASIC firmware to the Clockwork Pi PicoCalc handheld device, I was able to use the software written for this platform."
+    ],
     "images": [
       { "src": "files/images/picomite_deck_open.png", "alt": "An open computer case shows a Raspberry Pico RP2350, an HDMI display and a black keyboard" },
       { "src": "files/images/picomite_deck_closed.png", "alt": "An closed computer case shows an HDMI display and a black keyboard" }
@@ -11,7 +12,10 @@
   },
   {
     "date": "2025-08-27",
-    "text": "An interesting You Tube film from 1972 of the Barbican estate in London. The Barbican is a brutalist residential complex in the centre of London, containing shops, gardens, restaurants, theatres and gallery spaces. I worked nearby during the several years I lived in London and would spend my lunch breaks either in the garden, restaurant or basement. Shown here, the strikingly orange painted basement always provided a quiet, calm space from the busy city. I would sit here coding my own projects or playing Discworld MUD. In the evenings it was a music and theatre venue. I remember seeing the Residents play here with my dear friend Andy. On Fridays, I would treat myself to a roast duck dinner in the restaurant and sometimes a book from it's bookshop. I never returned after the Pandemic, maybe it had changed as I had. I would soon leave London and start a new chapter of my life.",
+    "paragraphs": [
+                    "An interesting You Tube film from 1972 of the Barbican estate in London. The Barbican is a brutalist residential complex in the centre of London, containing shops, gardens, restaurants, theatres and gallery spaces. I worked nearby during the several years I lived in London and would spend my lunch breaks either in the garden, restaurant or basement. Shown here, the strikingly orange painted basement always provided a quiet, calm space from the busy city. I would sit here coding my own projects or playing Discworld MUD.",
+                    "In the evenings it was a music and theatre venue. I remember seeing the Residents play here with my dear friend Andy. On Fridays, I would treat myself to a roast duck dinner in the restaurant and sometimes a book from it's bookshop. I never returned after the Pandemic, maybe it had changed as I had. I would soon leave London and start a new chapter of my life."
+    ],
     "youtube": "https://youtu.be/vvXpvH99tic?feature=shared",
     "images": [
       { "src": "files/images/barbican_orange_hall.jpg", "alt": "The orange basement of the Barbican Centre" }
