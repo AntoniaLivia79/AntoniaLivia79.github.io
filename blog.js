@@ -121,8 +121,16 @@
     function addParagraph(text){
       const textP = document.createElement('p');
       let raw = String(text || '');
+      // Linkify http(s) and site/relative file paths under /files or files
       const urlRegex = /(https?:\/\/[^\s)]+)(?![^<]*>|[^&]*;)/g;
-      raw = raw.replace(urlRegex, (m)=>`<a href="${m}">${m}</a>`);
+      const filePathRegex = /(?:\b|\()((?:\/files|files)\/[\w\-\.\/%#?=&]+)/gi;
+      raw = raw.replace(urlRegex, (m)=>`<a href="${m}">${m}</a>`)
+               .replace(filePathRegex, (m, p1)=>{
+                 // Ensure site-root path
+                 const href = p1.startsWith('/') ? p1 : ('/' + p1);
+                 return `<a href="${href}" target="_blank" rel="noopener noreferrer">${p1}</a>`;
+               })
+               .replace(/file:\/\//gi, ''); // strip file:// if pasted
       textP.innerHTML = sanitizeHtml(raw);
       wrap.appendChild(textP);
     }
