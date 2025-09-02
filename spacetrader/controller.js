@@ -387,7 +387,8 @@ function handleEncounter(type) {
             break;
 
         case "trader":
-            encounterTrader();
+            const trader = randomChoice(traderNames);
+            encounterTrader(trader);
             break;
 
         case "planet":
@@ -404,7 +405,7 @@ function handleEncounter(type) {
                 log(`You won the battle! Bounty awarded: ${bounty} points`);
                 updateStatus();
             } else {
-                log("Lost! Pirates damaged your ship");
+                log("Lost battle! Pirates damaged your ship");
                 const stat = randomChoice(["engine", "hold", "shields", "weapons"]);
                 log(manageStat(stat));
                 updateStatus();
@@ -437,7 +438,7 @@ function encounterPlanet() {
             log(`You won the battle! Bounty awarded: ${bounty} points`);
             updateStatus();
         } else {
-            log("Lost! Pirates damaged your ship");
+            log("Lost battle! Pirates damaged your ship");
             const stat = randomChoice(["engine", "hold", "shields", "weapons"]);
             log(manageStat(stat));
             updateStatus();
@@ -447,7 +448,7 @@ function encounterPlanet() {
         // Trade encounter on planet
         const trader = randomChoice(traderNames);
         log(`You encounter ${trader} on ${planet}!`);
-        encounterTrader();
+        encounterTrader(trader);
     }
 }
 
@@ -490,13 +491,12 @@ function processBoonOutcome(outcome) {
     continueExploration();
 }
 
-// Trader encounter in space
-function encounterTrader() {
-    const trader = randomChoice(traderNames);
+// Trader encounter
+function encounterTrader(trader) {
     const good = randomChoice(goodsList);
     const price = randomInt(15, 250);
 
-    log(`Encountered trader ${trader} in space!`);
+    log(`Encountered trader ${trader}!`);
 
     setScreen(`Space Trader Encounter<br><br>${trader} hails your ship:<br>"Greetings, Captain! I have ${good} for sale.<br>Price: ${price} credits"<br><br>What do you want to do?`);
 

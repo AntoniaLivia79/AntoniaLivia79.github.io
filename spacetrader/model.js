@@ -36,7 +36,6 @@ const traderNames = [
     "Astrid Moonglow", "Rigel Amberwing", "Celeste Horizon", "Tiberius Void"
 ];
 
-// Planet encounter scenarios from the original MicroPython script
 const planetScenarios = [
     {
         desc: "You discover ruins with an artifact.",
