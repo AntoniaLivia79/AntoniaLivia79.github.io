@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025-09-02",
+    "paragraphs": [
+      "I have been playing the Infocom adventure Enchanter with Frotz over the last fortnight. When I started I wanted a basic terminal based mapping tool where I could keep track of the rooms I had visited. Rather than a grid based map I thought to choose the terminal based mind mapping tool h-m-m (https://github.com/nadrad/h-m-m). This is a simple tool that allows you to create nodes and connect them together. I found it easy to use and it worked well for my needs. I created a node for each room and connected them together as I explored the game. I also added notes to each node to help me remember important details. One feature of h-m-m is the ability to export the graph as an html file (file:///files/enchanter.html).",
+      "Today I made the decision to move over to using the IFMapper tool (https://ggarra13.github.io). This is a more specialised tool for mapping interactive fiction games. The main reason to migrate was that although h-m-m worked well on Arch Linux, I found it difficult to install on other distros. Having reached expert enchanter rank on Enchanter I have decided to start a text adventure and map, this time choosing Plundered Hearts."
+    ]
+  },
+  {
     "date": "2025-08-31",
     "paragraphs": [
                     "I picked up an RP2350 Pico 2 microcontroller from the Raspberry Pi store in Cambridge last weekend with a plan to combine it with an HDMI display and mechanical keyboard I had spare. I mounted the RP2350 in an Olimex rp2040-pico-pc motherboard and flashed the Pico 2 with the Picomite BASIC core (https://geoffg.net - the PicoMiteHDMIUSB core). Although this core is compatible with the rp2040-pico-pc board I did have to blind set the HDMI support option using the keyboard via the <code>option reset olimexusb</code> command. This set the necessary options to connect to the display via the Olimex HDMI port, after which I reset the Olimex board.",
