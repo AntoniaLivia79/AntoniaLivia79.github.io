@@ -220,3 +220,12 @@ img[src$="avatar.png"] {
   border-radius: 8px;              /* soft corners */
   box-shadow: 0 0 10px rgba(189, 147, 249, 0.25); /* subtle glow */
 }
+
+/* Tagging UI */
+.tag-filter { border: 1px solid #3b4261; border-radius: 8px; padding: 10px; background: #0f111a; margin: 12px 0; }
+.tag-filter .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.tag, .tags .tag { display: inline-block; padding: 3px 8px; border-radius: 999px; border: 1px solid #44475a; color: #c0caf5; text-decoration: none; background: #1f2335; font-size: 0.9em; }
+.tag:hover { background: #33467c; border-color: #7aa2f7; color: #e1e7ff; }
+.tag.all { border-color: #7dcfff; }
+.post .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.active-tag { color: #7dcfff; margin: 4px 0 0; }

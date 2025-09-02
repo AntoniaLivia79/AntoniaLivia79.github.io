@@ -118,6 +118,20 @@
     h.textContent = fmtDate(d);
     wrap.appendChild(h);
 
+    // tags
+    if (Array.isArray(p.tags) && p.tags.length) {
+      const tagsBar = document.createElement('div');
+      tagsBar.className = 'tags';
+      p.tags.forEach(t => {
+        const a = document.createElement('a');
+        a.href = `#tag=${encodeURIComponent(String(t))}`;
+        a.className = 'tag';
+        a.textContent = String(t);
+        tagsBar.appendChild(a);
+      });
+      wrap.appendChild(tagsBar);
+    }
+
     function addParagraph(text){
       const textP = document.createElement('p');
       let raw = String(text || '');
@@ -182,6 +196,67 @@
     return Math.floor((bt - at)/MS);
   }
 
+  function getActiveTag(){
+    const h = window.location.hash || '';
+    const m = h.match(/#tag=([^&]+)/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function renderTagFilter(allPosts){
+    // Aggregate unique tags
+    const tagCounts = new Map();
+    for(const p of allPosts){
+      if(Array.isArray(p.tags)){
+        for(const t of p.tags){
+          const key = String(t);
+          tagCounts.set(key, (tagCounts.get(key)||0)+1);
+        }
+      }
+    }
+    if(tagCounts.size === 0) return null;
+
+    const container = document.createElement('div');
+    container.className = 'tag-filter';
+
+    const title = document.createElement('h4');
+    title.textContent = 'Tags';
+    container.appendChild(title);
+
+    const list = document.createElement('div');
+    list.className = 'tag-list';
+
+    // 'All' option
+    const allLink = document.createElement('a');
+    allLink.href = '#';
+    allLink.className = 'tag all';
+    allLink.textContent = `All (${allPosts.length})`;
+    list.appendChild(allLink);
+
+    const tags = Array.from(tagCounts.keys()).sort((a,b)=> a.localeCompare(b));
+    for(const t of tags){
+      const a = document.createElement('a');
+      a.href = `#tag=${encodeURIComponent(t)}`;
+      a.className = 'tag';
+      a.textContent = `${t} (${tagCounts.get(t)})`;
+      list.appendChild(a);
+    }
+
+    container.appendChild(list);
+
+    const active = document.createElement('p');
+    active.className = 'active-tag';
+    const activeTag = getActiveTag();
+    active.textContent = activeTag ? `Filtering by tag: ${activeTag}` : 'Showing all posts';
+    container.appendChild(active);
+
+    return container;
+  }
+
+  function filterPostsByTag(posts, tag){
+    if(!tag) return posts;
+    return posts.filter(p => Array.isArray(p.tags) && p.tags.map(String).includes(String(tag)));
+  }
+
   async function load(){
     try{
       const res = await fetch(POSTS_URL, { cache: 'no-store' });
@@ -192,38 +267,43 @@
         .filter(p=>p && p.date)
         .map(p=>({ ...p, date: String(p.date).slice(0,10) }));
 
-      const today = new Date();
-      const grouped = groupByDate(posts);
+      const rerender = ()=>{
+        const activeTag = getActiveTag();
+        ROOT.innerHTML = '';
+        // Tag filter UI at top
+        const filterEl = renderTagFilter(posts);
+        if(filterEl) ROOT.appendChild(filterEl);
 
-      if(PAGE === 'blog'){
-        // Keep up to 7 most recent date groups
-        const latestGroups = grouped.slice(0, 7);
-        if(latestGroups.length === 0){
-          const empty = document.createElement('p');
-          empty.textContent = 'No posts yet.';
-          ROOT.appendChild(empty);
-          return;
-        }
-        for(const g of latestGroups){
-          // If multiple posts in a day, render sequentially but with a single date heading for first
-          // We will render each post, but only put date on the first
-          let first = true;
-          for(const post of g.items){
-            const elem = renderPost({ ...post, date: g.dateStr });
-            if(!first){
-              // remove duplicate date heading for subsequent posts in same day
-              const firstChild = elem.querySelector('.post-date');
-              if(firstChild) firstChild.remove();
-            }
-            ROOT.appendChild(elem);
-            first = false;
+        const filtered = filterPostsByTag(posts, activeTag);
+        const grouped = groupByDate(filtered);
+
+        if(PAGE === 'blog'){
+          // Keep up to 7 most recent date groups (after filtering)
+          const latestGroups = grouped.slice(0, 7);
+          if(latestGroups.length === 0){
+            const empty = document.createElement('p');
+            empty.textContent = activeTag ? `No posts found for tag "${activeTag}".` : 'No posts yet.';
+            ROOT.appendChild(empty);
+            return;
           }
-        }
-      } else if(PAGE === 'archives'){
+          for(const g of latestGroups){
+            // If multiple posts in a day, render sequentially but with a single date heading for first
+            let first = true;
+            for(const post of g.items){
+              const elem = renderPost({ ...post, date: g.dateStr });
+              if(!first){
+                const firstChild = elem.querySelector('.post-date');
+                if(firstChild) firstChild.remove();
+              }
+              ROOT.appendChild(elem);
+              first = false;
+            }
+          }
+        } else if(PAGE === 'archives'){
         // Only posts older than ~1 month (30 days)
         const cutoff = new Date();
         cutoff.setDate(cutoff.getDate() - 30);
-        const archived = posts.filter(p => daysBetween(parseDate(p.date), cutoff) >= 0);
+        const archived = filtered.filter(p => daysBetween(parseDate(p.date), cutoff) >= 0);
         // group by month
         const byMonth = new Map();
         for(const p of archived){
@@ -275,7 +355,12 @@
           }
           ROOT.appendChild(sec);
         }
-      }
+        }
+      };
+
+      // Initial render and listeners
+      rerender();
+      window.addEventListener('hashchange', rerender);
     }catch(err){
       const p = document.createElement('p');
       p.textContent = 'Error loading blog: ' + err.message;
