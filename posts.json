@@ -1,5 +1,16 @@
 [
-
+  {
+    "date": "2025-09-05",
+    "tags": ["IF", "Magnetic Scrolls", "Jinxster", "games"],
+    "paragraphs": [
+                    "I had fun yesterday playing Plundered Hearts on a train journey across the UK, it's a riveting story ! It was also good to get experience with using IFMapper. This morning I watched an interesting YouTube video by Kim Justice on the interactive fiction games created by the Magnetic Scrolls studio. These games were text based but also incorporated beautiful artwork. I was interested on how to play their games on Linux and found an interpreter called dMagnetic (https://dettus.net/dMagnetic/). I could find no Arch Linux packages available but I was able to download the source package from the website and compile it without any issues. I am running dMagnetic from the terminal in its utf video mode <code>dMagnetic -gfx jinxter.gfx -vmode utf</code>, which provides a good render for a terminal application. There is also a GTK version available, which I may try at a later date.",
+                    "The gfx and mag game files required by dMagnetic can be obtained from the Magnetic Scrolls Memorial site (https://msmemorial.if-legends.org/magnetic.php)."
+    ],
+    "images": [
+      { "src": "files/images/jinxster_utf.png", "alt": "A scene of passengers on a bus rendered in the terminal using utf characters, while playing the Jinxter IF game with dMagnetic." }
+    ],
+    "youtube": "https://youtu.be/JQkLZWecPOI?feature=shared"
+  },
   {
     "date": "2025-09-02",
     "tags": ["IF", "Infocom", "Spellbreaker", "games"],
