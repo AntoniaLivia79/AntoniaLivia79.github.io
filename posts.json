@@ -3,7 +3,7 @@
     "date": "2025-09-07",
     "tags": ["IF", "Magnetc Scrolls", "Jinxter", "games"],
     "paragraphs": [
-                    "This evening I experimented with running dMagnetic is it's sixel mode. Sixel was an early bitmap graphics format that was used on DEC VT terminals. So far I have only managed to get the required VT340 mode working through xterm using the command <code>xterm -ti vt340</code>. The sixel graphics look pretty good but unfortunately kitty, the terminal emulator I usually use, does not support it. I attach the previous scene from Jinxster rendered in sixel mode.",
+                    "This evening I experimented with running dMagnetic is it's sixel mode. Sixel was an early bitmap graphics format that was used on DEC VT terminals. So far I have only managed to get the required VT340 mode working through xterm using the command <code>xterm -ti vt340 -fa 'Monospace' -fs 11 -bg black -fg lightgreen</code>. The sixel graphics look pretty good but unfortunately kitty, the terminal emulator I usually use, does not support it. I attach the previous scene from Jinxster rendered in sixel mode.",
                     "Back to the game, Jinxster is interesting from what I have played so far. It seems to incorporate elements of magical realism, a good parser and a wry sense of humour. I am hoping to get the opportunity this week to spend some more time with it."
                   ],
       "images": [
