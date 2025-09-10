@@ -1,5 +1,13 @@
 [
   {
+    "date": "2025-09-10",
+    "tags": ["IF", "Magnetic Scrolls", "Jinxter", "games"],
+    "text": "A magpie sitting in a berry bush, from the Jinxter game. I like the pastoral pixel art style. The storyline is quite bonkers and fun. It reminds me of Douglas Adams and Monty Python. A very surreal, english sense of humour.",
+      "images": [
+      { "src": "files/images/jinxster_magpie.png", "alt": "A pixel art image of a magpie in a berry bush." }
+    ]
+  },
+  {
     "date": "2025-09-07",
     "tags": ["IF", "Magnetc Scrolls", "Jinxter", "games"],
     "paragraphs": [
