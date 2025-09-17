@@ -1,4 +1,12 @@
 [
+    {
+    "date": "2025-09-10",
+    "tags": ["Picomite", "Pico", "RP2350", "BASIC", "games"],
+    "text": "Over the last couple of evenings I have been porting the one button jewel game from https://research.swissdigitization.ch/?p=1260 over to Picomite BASIC on an RP2350 microcontroller. I'm using my own cyber deck which has a 640 x 480 display but it may work on a PicoCalc with tweaks. I have ordered a PicoCalc device (https://www.clockworkpi.com/picocalc) and I am looking forward to getting this running on it. I've always been fascinated with cyber decks, building them for 15 years. It is the DIY aesthetic which attracts me to this hobby. There is something special about creating your own portable (or wired) computing device. They are also a fun way to play text based games. I plan to show some off these projects in this blog.",
+      "images": [
+      { "src": "files/images/linejewels_1.png", "alt": "A match3 jewel game running in Picomite BASIC." }
+    ]
+  },
   {
     "date": "2025-09-10",
     "tags": ["IF", "Magnetic Scrolls", "Jinxter", "games"],
