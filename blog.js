@@ -300,10 +300,13 @@
             }
           }
         } else if(PAGE === 'archives'){
-        // Only posts older than ~1 month (30 days)
+        // Only posts older than 7 days
         const cutoff = new Date();
-        cutoff.setDate(cutoff.getDate() - 30);
-        const archived = filtered.filter(p => daysBetween(parseDate(p.date), cutoff) >= 0);
+        cutoff.setDate(cutoff.getDate() - 7);
+        const archived = filtered.filter(p => {
+          const postDate = parseDate(p.date);
+          return postDate < cutoff; // Show posts older than cutoff date
+        });
         // group by month
         const byMonth = new Map();
         for(const p of archived){
@@ -322,6 +325,7 @@
         }
         // nav
         if(NAV){
+          NAV.innerHTML = ''; // Clear existing navigation links
           months.forEach(key=>{
             const a = document.createElement('a');
             a.href = `#m-${key}`;

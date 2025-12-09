@@ -13,7 +13,7 @@ Use this guide to create and maintain content (especially blog posts and tags).
 Top-level files:
 - index.html — Home page with overview/links.
 - blog.html — Blog front page that shows up to seven most recent days of posts. Renders from posts.json via blog.js. Includes tag filter UI.
-- archives.html — Older posts (more than ~30 days old), grouped by month. Also supports tag filtering.
+- archives.html — Older posts (more than 7 days old), grouped by month. Also supports tag filtering.
 - blog.js — Client-side renderer. Loads posts.json, sanitizes text, linkifies URLs, groups by date/month, and renders images/YouTube. Handles tag chips and filtering via URL hash (#tag=...).
 - posts.json — Content store for blog posts. Edit this file to add new posts.
 - styles.css — Site-wide styling (typography, layout, tag chips, blog cards, etc.).
@@ -25,7 +25,7 @@ Top-level files:
 - Data source: blog.js fetches posts.json with no-store caching to pick up fresh content after deploy.
 - Rendering:
   - Blog page shows the seven most recent date groups (a date group can contain multiple posts on the same day).
-  - Archives page shows posts older than ~30 days, grouped by month with a simple month navigation list.
+  - Archives page shows posts older than 7 days, grouped by month with a simple month navigation list.
 - Tagging:
   - Each post can have an optional tags array of strings. Tags are displayed as chips on each post.
   - The tag filter at the top aggregates all tags and shows counts. Clicking a tag sets the URL hash (#tag=...) and filters both Blog and Archives.

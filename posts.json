@@ -17,7 +17,7 @@
     ]
   },
   {
-    "date": "2025-09-10",
+    "date": "2025-09-09",
     "tags": ["IF", "Magnetic Scrolls", "Jinxter", "games"],
     "text": "A magpie sitting in a berry bush, from the Jinxter game. I like the pastoral pixel art style. The storyline is quite bonkers and fun. It reminds me of Douglas Adams and Monty Python. A very surreal, english sense of humour.",
       "images": [
@@ -54,7 +54,7 @@
     "youtube": "https://youtu.be/qXAubRZ-qjw?si=p3kiGgc5ehJ6xrI6"
   },
   {
-    "date": "2025-09-02",
+    "date": "2025-09-01",
     "tags": ["IF", "Infocom", "Enchanter", "games"],
     "paragraphs": [
       "I have been playing the Infocom adventure Enchanter with Frotz over the last fortnight. I wanted a basic terminal based mapping tool where I could keep track of the rooms I had visited. Rather than a grid based map I thought to choose the terminal based mind mapping tool h-m-m (https://github.com/nadrad/h-m-m). This is a simple tool that allows you to create nodes and connect them together. I found it easy to use and it worked well for my needs. I created a node for each room and connected them together as I explored the game. I also added notes to each node to help me remember important details. One feature of h-m-m is the ability to export the graph as an html file ( /files/enchanter_map.html).",
