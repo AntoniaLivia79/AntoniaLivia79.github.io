@@ -1,4 +1,13 @@
 [
+
+     {
+    "date": "2025-12-09",
+    "tags": ["Picomite", "Pico", "PicoCalc","RP2350", "BASIC", "games"],
+    "text": "After a wait of several months I now have my PicoCalc. I've installed Lua, Micropython and Picomite firmwares but also a Frotz firmware (so I can play text machines from a handheld). The latter has been something I've been hoping for and I've started playing some z-machine text games from Emily Short (Galatea and Metamorphoses) on the device. I also got to finish my port of the one button jewel game (https://github.com/AntoniaLivia79/Picomite-LineJewels.git).",
+      "images": [
+      { "src": "files/images/linejewels_2.jpg", "alt": "A match3 jewel game running in Picomite BASIC on a PicoCalc." }
+    ]
+  },
     {
     "date": "2025-09-10",
     "tags": ["Picomite", "Pico", "RP2350", "BASIC", "games"],
