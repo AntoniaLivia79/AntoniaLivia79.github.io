@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Witching Scriptorium — Personal Curriculum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: 'NerdFont';
+      src: url('MononokiNerdFont-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .curriculum-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #3b4261;
+      margin-bottom: 24px;
+    }
+    .curriculum-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.5rem;
+      color: #7aa2f7;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .curriculum-subtitle {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: #bb9af7;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .curriculum-overview {
+      border-left: 3px solid #bb9af7;
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: rgba(187,154,247,0.06);
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      line-height: 1.85;
+      color: #c0caf5;
+    }
+
+    .season-card {
+      border: 1px solid #3b4261;
+      border-radius: 6px;
+      margin: 18px 0;
+      background: #1a1b26;
+      overflow: hidden;
+    }
+    .season-card-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid #3b4261;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .season-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .season-card-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .season-card-tagline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #7dcfff;
+      margin: 0;
+    }
+    .season-card-body {
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #c0caf5;
+    }
+    .season-card-body p { color: #c0caf5; margin-bottom: 10px; }
+    .season-card-books {
+      margin: 10px 0 0;
+      font-size: 0.85rem;
+      color: #a9b1d6;
+    }
+    .season-card-books span {
+      display: inline-block;
+      background: #24283b;
+      border: 1px solid #3b4261;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 3px 2px;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+    }
+    .season-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom-style: dotted;
+    }
+
+    .divider-ornament {
+      text-align: center;
+      color: #3b4261;
+      letter-spacing: 8px;
+      margin: 24px 0;
+      font-size: 0.9rem;
+    }
+
+    /* Seasonal left-border accents */
+    .season-spring .season-card-header { border-left: 4px solid #5a9a5a; }
+    .season-summer .season-card-header { border-left: 4px solid #c8960a; }
+    .season-autumn .season-card-header { border-left: 4px solid #c06820; }
+    .season-winter .season-card-header { border-left: 4px solid #6a90e8; }
+
+    .season-spring .season-card-title  { color: #7acc7a; }
+    .season-summer .season-card-title  { color: #d4a83a; }
+    .season-autumn .season-card-title  { color: #e07840; }
+    .season-winter .season-card-title  { color: #7aa2f7; }
+
+    .season-spring .season-link { color: #7acc7a; border-bottom-color: #7acc7a; }
+    .season-summer .season-link { color: #d4a83a; border-bottom-color: #d4a83a; }
+    .season-autumn .season-link { color: #e07840; border-bottom-color: #e07840; }
+    .season-winter .season-link { color: #7aa2f7; border-bottom-color: #7aa2f7; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="blurb">
+
+      <div class="curriculum-header">
+        <h2 class="curriculum-title">The Witching Scriptorium</h2>
+        <p class="curriculum-subtitle">A Personal Year-Long Curriculum</p>
+      </div>
+
+      <div class="curriculum-overview">
+        A personal curriculum is a self-directed course of reading, writing and practice, designed not for an institution but for yourself alone. The Witching Scriptorium is a year-long curriculum in the English mythic imagination — landscape, folklore, sacred practice and the art of world-building. It is divided into four seasons, each with its own theme, books, exercises and creative focus. Together they form a complete course for the scholar, the writer and the practitioner who wants to build a deep, rooted imaginative world.
+      </div>
+
+      <p>The curriculum moves through the wheel of the year: from the waking world of spring, through the long light of summer and the thinning veil of autumn, to the deep archive of winter. Each season pairs one non-fiction text with one work of fiction, and provides six writing and creative exercises, weekly plans, an outdoor outing, and a closing reflection essay.</p>
+
+      <div class="divider-ornament">· · · ✦ · · ·</div>
+
+      <h3>The Four Seasons</h3>
+
+      <div class="season-card season-spring">
+        <div class="season-card-header">
+          <span class="season-icon">🌱</span>
+          <div>
+            <div class="season-card-title">Season I — Spring: The Waking World</div>
+            <p class="season-card-tagline">Origins · Sacred Landscape · The Other Beneath the Surface</p>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p>The first season digs into the deep soil of the English landscape. You learn to read the land as a palimpsest — layer upon layer of belief, practice and presence. You draw the foundational map of your invented world and name its first sacred place, tracing the wound at its origin.</p>
+          <div class="season-card-books">
+            <span>The Stations of the Sun — Ronald Hutton</span>
+            <span>The Crystal Cave — Mary Stewart</span>
+          </div>
+          <a href="curriculum_season1.html" class="season-link">Enter Season I →</a>
+        </div>
+      </div>
+
+      <div class="season-card season-summer">
+        <div class="season-card-header">
+          <span class="season-icon">☀️</span>
+          <div>
+            <div class="season-card-title">Season II — Summer: The Long Light</div>
+            <p class="season-card-tagline">Mythology · The Divine Feminine · The Hero Who Is Not A Man</p>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p>The second season turns the gaze upward and outward — toward the great structural patterns that underlie all story. You move into comparative mythology and fiction that rewrites the expected heroic arc. Your invented world gains its gods, its founding myths, the stories its people tell to explain why things are the way they are.</p>
+          <div class="season-card-books">
+            <span>The Myth of the Goddess — Baring &amp; Cashford</span>
+            <span>The Buried Giant — Kazuo Ishiguro</span>
+          </div>
+          <a href="curriculum _season2.html" class="season-link">Enter Season II →</a>
+        </div>
+      </div>
+
+      <div class="season-card season-autumn">
+        <div class="season-card-header">
+          <span class="season-icon">🍂</span>
+          <div>
+            <div class="season-card-title">Season III — Autumn: The Thinning</div>
+            <p class="season-card-tagline">Folk Magic · The Liminal · Tradition &amp; Transgression</p>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p>The third season moves into the hidden world of cunning folk and rural practice. You study the secret societies and folk magic traditions of the English countryside, and bring a cunning person into being inside your invented world, grounding their practice in real historical tradition.</p>
+          <div class="season-card-books">
+            <span>Witchcraft and Secret Societies of Rural England — Nigel Pennick</span>
+            <span>The Owl Service — Alan Garner</span>
+          </div>
+          <a href="curriculum_season3.html" class="season-link">Enter Season III →</a>
+        </div>
+      </div>
+
+      <div class="season-card season-winter">
+        <div class="season-card-header">
+          <span class="season-icon">❄️</span>
+          <div>
+            <div class="season-card-title">Season IV — Winter: The Deep Archive</div>
+            <p class="season-card-tagline">Time · Memory · The Self Across History</p>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p>The final season is a time of synthesis and completion. You explore the nature of time, memory and pattern in both building and story, and write the deep history of your invented world. The year closes with a great reflection — a reckoning with everything you have read, made and understood across the four seasons.</p>
+          <div class="season-card-books">
+            <span>The Timeless Way of Building — Christopher Alexander</span>
+            <span>The Left Hand of Darkness — Ursula K. Le Guin</span>
+          </div>
+          <a href="curriculum_season4.html" class="season-link">Enter Season IV →</a>
+        </div>
+      </div>
+
+      <div class="divider-ornament">· · · ✦ · · ·</div>
+
+      <h3>What the Full Year Gives You</h3>
+      <p>By the end of the four seasons, you will have read eight books alternating fiction and scholarship; engaged with sacred landscape, comparative mythology, folk magic and world-building theory; completed twenty-six writing and creative exercises; made at least four real-world outings; written four seasonal closing essays and one year-end reflection; and built a complete invented world from a blank map — named, mythologised, populated, and historied.</p>
+
+      <h4><a href="index.html">← Back to Home</a></h4>
+
+    </div>
+  </div>
+</body>
+</html>
