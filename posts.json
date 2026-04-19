@@ -1,6 +1,15 @@
 [
 
      {
+    "date": "2026-04-19",
+    "tags": ["curriculum", "personal", "learning", "writing", "folklore"],
+    "paragraphs": [
+      "I have been thinking for a while about creating a personal curriculum — a self-directed course of reading, writing and practice, designed not for any institution but for myself alone. A personal curriculum is a way of taking your own intellectual and creative development seriously: you choose your own subjects, set your own pace, and do the work because it matters to you, not because someone is grading it. The result, if you commit to it, is something much more alive than any formal course: a body of learning that is genuinely yours.",
+      "My curriculum is called <em>The Witching Scriptorium</em>, and it is a year-long course in the English mythic imagination — landscape, folklore, sacred practice and world-building. It moves through the wheel of the year in four seasons, each with its own theme, books, creative exercises and an outdoor outing. The full curriculum is available on this site. You can <a href=\"curriculum.html\">read the overview here</a>."
+    ]
+  },
+
+     {
     "date": "2025-12-09",
     "tags": ["Picomite", "Pico", "PicoCalc","RP2350", "BASIC", "games"],
     "text": "After a wait of several months I now have my PicoCalc. I've installed Lua, Micropython and Picomite firmwares but also a Frotz firmware (so I can play text machines from a handheld). The latter has been something I've been hoping for and I've started playing some z-machine text games from Emily Short (Galatea and Metamorphoses) on the device. I also got to finish my port of the one button jewel game (https://github.com/AntoniaLivia79/Picomite-LineJewels.git).",
