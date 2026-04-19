@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season III — Autumn: The Thinning</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5edd8;
+    --gold: #b8860b;
+    --season-color: #7a3a00;
+    --crimson: #7a1e1e;
+    --border: #c4a96e;
+    --mist: #9a7a5a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1e0e00;
+    background-image: radial-gradient(ellipse at 20% 80%, rgba(120,60,0,0.4) 0%, transparent 60%);
+    font-family: 'IM Fell English', serif;
+    color: var(--ink);
+    padding: 40px 20px;
+  }
+  .page {
+    max-width: 820px; margin: 0 auto;
+    background: var(--parchment);
+    background-image: linear-gradient(180deg, #f5edda 0%, #ede3c0 50%, #e8dab5 100%);
+    border: 3px solid var(--border);
+    box-shadow: 0 0 0 8px #1e0e00, 0 0 0 10px var(--season-color), 0 0 60px rgba(0,0,0,0.85), inset 0 0 80px rgba(120,60,0,0.07);
+    padding: 55px 65px; position: relative; overflow: hidden;
+  }
+  .page::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(180deg, transparent, transparent 31px, rgba(180,150,80,0.07) 31px, rgba(180,150,80,0.07) 32px);
+    pointer-events: none;
+  }
+  .corner { position: absolute; color: var(--season-color); opacity: 0.55; font-size: 2.2rem; }
+  .corner.tl { top: 14px; left: 14px; }
+  .corner.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner.br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+
+  .season-badge { text-align: center; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 2px solid var(--border); position: relative; }
+  .season-badge::after { content: '✦  ✦  ✦'; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); background: var(--parchment); padding: 0 14px; color: var(--season-color); font-size: 0.85rem; letter-spacing: 5px; }
+  .season-number { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--season-color); margin-bottom: 10px; }
+  .season-icon-large { font-size: 3rem; margin-bottom: 10px; display: block; }
+  h1 { font-family: 'Cinzel Decorative', serif; font-size: 1.9rem; color: var(--ink); line-height: 1.25; margin-bottom: 8px; }
+  .season-tagline { font-style: italic; color: var(--season-color); font-size: 1rem; }
+
+  h2 { font-family: 'Cinzel Decorative', serif; font-size: 1rem; color: var(--crimson); margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  h3 { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--gold); margin: 22px 0 9px; }
+  p { line-height: 1.88; margin-bottom: 13px; font-size: 0.97rem; }
+  em { color: var(--crimson); }
+
+  .intro-block { background: rgba(120,60,0,0.06); border-left: 3px solid var(--season-color); padding: 20px 26px; margin: 28px 0; font-style: italic; font-size: 0.97rem; line-height: 1.9; }
+
+  .pennick-note { background: rgba(180,150,80,0.1); border: 1px solid var(--border); padding: 16px 20px; margin: 16px 0; font-size: 0.88rem; line-height: 1.75; }
+  .pennick-note strong { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--season-color); display: block; margin-bottom: 5px; }
+
+  .book-card { border: 1px solid var(--border); margin: 16px 0; background: rgba(255,255,255,0.22); }
+  .book-card-header { background: rgba(180,150,80,0.1); padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
+  .book-type-badge { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--season-color); color: #fff; padding: 3px 10px; flex-shrink: 0; }
+  .book-title-main { font-style: italic; color: var(--crimson); font-size: 1.02rem; }
+  .book-author-main { font-family: 'Lato', sans-serif; font-size: 0.82rem; color: #5a4a2a; margin-top: 2px; }
+  .book-card-body { padding: 14px 20px; font-size: 0.9rem; line-height: 1.75; }
+  .book-focus { margin-top: 10px; padding: 10px 14px; background: rgba(120,60,0,0.05); border-left: 2px solid var(--season-color); font-size: 0.85rem; font-style: italic; }
+  .book-focus strong { font-style: normal; font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--season-color); display: block; margin-bottom: 4px; }
+
+  .exercise { border: 1px solid var(--border); margin: 18px 0; background: rgba(255,255,255,0.18); }
+  .exercise-header { display: grid; grid-template-columns: 56px 1fr; border-bottom: 1px solid var(--border); }
+  .exercise-number { background: var(--season-color); color: #fff; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+  .exercise-title-area { padding: 12px 18px; }
+  .exercise-pillar { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mist); margin-bottom: 3px; }
+  .exercise-title { font-family: 'Cinzel Decorative', serif; font-size: 0.82rem; color: var(--crimson); }
+  .exercise-body { padding: 16px 20px; }
+  .exercise-body p { font-size: 0.9rem; margin-bottom: 10px; }
+  .exercise-body p:last-child { margin-bottom: 0; }
+  .exercise-prompt { background: rgba(122,30,30,0.04); border: 1px dashed rgba(122,30,30,0.25); padding: 12px 16px; margin-top: 12px; font-style: italic; font-size: 0.88rem; line-height: 1.7; color: #3a1a1a; }
+  .exercise-prompt strong { font-style: normal; display: block; font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); margin-bottom: 5px; }
+
+  .week-block { border: 1px solid var(--border); margin: 14px 0; }
+  .week-header { background: rgba(120,60,0,0.07); padding: 10px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+  .week-label { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--season-color); }
+  .week-theme { font-style: italic; font-size: 0.85rem; color: #4a3a1a; }
+  .week-body { padding: 12px 18px; }
+  .week-tasks { list-style: none; }
+  .week-tasks li { padding: 6px 0 6px 20px; position: relative; font-size: 0.88rem; line-height: 1.55; border-bottom: 1px dashed rgba(180,150,80,0.2); }
+  .week-tasks li:last-child { border-bottom: none; }
+  .week-tasks li::before { content: '›'; position: absolute; left: 0; color: var(--season-color); font-size: 1.1rem; top: 4px; }
+
+  .divider { text-align: center; color: var(--season-color); letter-spacing: 10px; margin: 28px 0; opacity: 0.5; font-size: 0.9rem; }
+
+  .goals-box { background: rgba(120,60,0,0.05); border: 2px solid var(--season-color); padding: 22px 26px; margin: 24px 0; }
+  .goals-box h3 { color: var(--season-color); margin: 0 0 12px; }
+  .goals-list { list-style: none; }
+  .goals-list li { padding: 7px 0 7px 22px; position: relative; font-size: 0.9rem; line-height: 1.6; border-bottom: 1px solid rgba(120,60,0,0.15); }
+  .goals-list li:last-child { border-bottom: none; }
+  .goals-list li::before { content: '✦'; position: absolute; left: 0; color: var(--season-color); font-size: 0.65rem; top: 10px; }
+
+  .closing { text-align: center; margin-top: 44px; padding-top: 26px; border-top: 2px solid var(--border); font-style: italic; font-size: 0.92rem; color: var(--season-color); line-height: 1.9; }
+  @media(max-width:640px){ .page{padding:36px 24px;} h1{font-size:1.45rem;} }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="corner tl">❧</div><div class="corner tr">❧</div>
+  <div class="corner bl">❧</div><div class="corner br">❧</div>
+
+  <div class="season-badge">
+    <p class="season-number">The Witching Scriptorium · Season Three</p>
+    <span class="season-icon-large">🍂</span>
+    <h1>The Thinning</h1>
+    <p class="season-tagline">Folk Magic · The Liminal · Tradition & Transgression</p>
+  </div>
+
+  <div class="intro-block">
+    The veil thins. This is the season most native to your practice — and the one that will take you deepest into the hidden currents of English magical life. Not the ceremonial tradition, but the folk layer: the cunning women, the toad-bone rite, the thing whispered at a crossroads in November dark. Your world gains its hedge witches, its folk customs, and the unspoken rules that ordinary people live by.
+  </div>
+
+  <h2>I. Your Season Goals</h2>
+  <div class="goals-box">
+    <h3>By the end of this season you will have…</h3>
+    <ul class="goals-list">
+      <li>Read two books: one non-fiction (Pennick), one fiction (Garner)</li>
+      <li>Created a cunning person, a folk tradition, and a piece of folk myth for your world</li>
+      <li>Completed seven journal exercises including three story pieces</li>
+      <li>Completed one autumn nature walk with a specific observational task</li>
+      <li>Written one closing reflection essay (2–3 pages)</li>
+    </ul>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>II. The Books</h2>
+
+  <div class="pennick-note">
+    <strong>A note on availability</strong>
+    <em>Witchcraft and Secret Societies of Rural England</em> by Pennick is currently out of stock at Waterstones but available via Blackwell's and online. It was originally published in the UK in 2011 under the title <em>In Field and Fen</em> — searching under this title may find secondhand copies. It is also available new via Inner Traditions/Destiny Books. If you cannot source it, <em>Cunning Folk and Familiar Spirits</em> by Emma Wilby (Eastgate Press) covers complementary ground with a more scholarly focus and is well-stocked in UK university town bookshops and online.
+  </div>
+
+  <div class="book-card">
+    <div class="book-card-header">
+      <span class="book-type-badge">Non-fiction</span>
+      <div>
+        <div class="book-title-main">Witchcraft and Secret Societies of Rural England</div>
+        <div class="book-author-main">— Nigel Pennick (also published as <em>In Field and Fen</em>)</div>
+      </div>
+    </div>
+    <div class="book-card-body">
+      <p>A meticulous and gripping account of the magical folk culture preserved in the secret societies and rural fraternities of the English Fens — Toadmen, Horsemen, Plough Witches, Mummers and Bonesmen. Pennick draws on scholarly research and his own personal contacts within these still-living traditions.</p>
+      <p>The book is both informative and genuinely strange. It details the toad-bone rite, the guardian spirits of the Fens, and the way magic was woven through the everyday lives of working people rather than practiced as a separate esoteric discipline. Relevant to your interests in a very direct way.</p>
+      <div class="book-focus">
+        <strong>Reading focus</strong>
+        The chapters on the Toadmen and Horsemen (for the folk magic of animal working), on wise women and village witches (for the social role of the cunning person), and on the magic of place and spirit guardians. Note especially Pennick's argument that magic was not mysterious to those who used it — it was practical, communal, and embedded in daily work.
+      </div>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-card-header">
+      <span class="book-type-badge">Fiction</span>
+      <div>
+        <div class="book-title-main">The Owl Service</div>
+        <div class="book-author-main">— Alan Garner</div>
+      </div>
+    </div>
+    <div class="book-card-body">
+      <p>Welsh mythology coiled inside a contemporary story — three young people in a Welsh valley are unwittingly re-enacting a myth from the Mabinogion, drawn into a pattern older than any of them. Short, intense, strange. The landscape is not background; it is a participant.</p>
+      <p>Garner uses place in the same way Moore uses London in Jerusalem — as a palimpsest where the past is not past. He was one of the great influences on the resurgence of British mythic fiction, and this book is where that began.</p>
+      <div class="book-focus">
+        <strong>Reading focus</strong>
+        The central mechanism: myth as pattern that repeats through different bodies, different generations, whether those people want it to or not. Note how the female figure at the centre of the myth is both victim and agent. Note how the landscape responds to the story. Read the ending twice.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>III. The Weekly Plan</h2>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 1–3</span>
+      <span class="week-theme">Into the Fens. The folk magic layer.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Read the first half of Pennick — focus on the Toadmen, Horsemen, and wise women chapters</li>
+        <li>Complete Exercise 1: initial notes on the cunning person of your world</li>
+        <li>Complete Exercise 2: The Familiar — the spirit-companion your cunning person works with</li>
+        <li>One nature walk — the specific task is in Exercise 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 4–6</span>
+      <span class="week-theme">The Owl Service. Myth as compulsion.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Read <em>The Owl Service</em> — allow a week. It is short but demands slow attention</li>
+        <li>Finish Pennick — the chapters on place spirits and folk custom</li>
+        <li>Complete Exercise 3: The Pattern Repeating — a myth recursion in your world</li>
+        <li>Complete Exercise 4: The Folk Tradition — a seasonal custom of your world</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 7–9</span>
+      <span class="week-theme">The cunning craft. The crossroads.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Complete Exercise 1: Finish and deepen the cunning person — their method, their limits, their cost</li>
+        <li>Complete Exercise 6: The Compendium Entry — writing folk tradition as a scholar would record it</li>
+        <li>Research notes session: what has surprised you most in Pennick? Fill two pages with connections and questions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 10–12</span>
+      <span class="week-theme">The story told at Samhain. Synthesis.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Complete Exercise 7: The Samhain Story — the tale your world tells at the thinning</li>
+        <li>Return to your map — add any new sites, crossroads, liminal places this season has revealed</li>
+        <li>Write your Season Closing Essay: 2–3 pages</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>IV. The Journal Exercises</h2>
+  <p>Seven exercises this season — the most yet. The folk magic layer is thick and rich. Allow yourself to be drawn by it.</p>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">I</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Scholarship & Story</div>
+        <div class="exercise-title">The Cunning Person</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Drawing on Pennick's accounts of village witches and wise women, create the cunning person of your invented world. This is a sustained exercise — build it across two or three sessions.</p>
+      <p>Give them: a name, their gender (not necessarily female — Pennick's Toadmen are men), their trade or apparent trade, the village or area they serve, their method of consultation, and what their familiar is (see Exercise 2).</p>
+      <p>Then the crucial element: what are they <em>willing</em> to do, and what do they <em>refuse</em>? This is the moral core of folk magic in Pennick. Make them genuinely morally ambiguous — neither a witch-hero nor a villain.</p>
+      <div class="exercise-prompt">
+        <strong>The Question Beneath</strong>
+        What does your cunning person want that they have never told anyone? What do they fear? Has their magic ever failed them in a way they have not recovered from?
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">II</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Story</div>
+        <div class="exercise-title">The Familiar</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>In Pennick (and in Emma Wilby's parallel scholarship), familiar spirits are not pets or servants — they are complex beings, often with their own needs and temperaments, capable of refusing, of being offended, of demanding things in return.</p>
+      <p>Write one page as a scene: your cunning person and their familiar, in the moment just after the familiar has refused to do something asked of it. What was asked? What was refused? How does the cunning person respond — with anger, with negotiation, with resignation?</p>
+      <div class="exercise-prompt">
+        <strong>The Form</strong>
+        No dialogue tags. Just the exchange — let the reader infer who is speaking (or whether the familiar speaks in words at all, or in some other way). Make the relationship feel old and complicated and not entirely comfortable.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">III</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Story</div>
+        <div class="exercise-title">The Pattern Repeating</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Garner's central mechanism: a myth repeating through different people across time, whether they know it or not. Choose a myth or folklore pattern you have encountered this year — from Arthurian material, from your goddess work, from Pennick, from anywhere — and write it as if it were happening now, in your invented world, to ordinary people.</p>
+      <p>The people do not know they are enacting a myth. Or perhaps one of them does, and cannot stop it anyway.</p>
+      <div class="exercise-prompt">
+        <strong>The Constraint</strong>
+        Write it from the perspective of the figure who is most aware that something old is happening. They may not have words for it. They may just feel it as a wrongness, a déjà vu, a sense of walking in a groove someone else made.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 4 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">IV</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Creation</div>
+        <div class="exercise-title">A Folk Tradition</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Invent a single folk tradition for your world — a festival, a prohibition, a charm worked at a crossroads at a particular time of year. Something that ordinary people do or avoid, that has roots they have mostly forgotten.</p>
+      <p>Give it: a name, an occasion (season, moon phase, date), the practice itself (what is done, what is said, what is worn or carried), and the story people tell about why it began — knowing that the story is probably only half-true.</p>
+      <div class="exercise-prompt">
+        <strong>The Detail</strong>
+        What do children think of this tradition? Is it attended willingly or out of obscure obligation? Is there a version practiced by women and a version by men, that are slightly different and that neither fully explains to the other?
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 5 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">V</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌿 The Land — Autumn Walk</div>
+        <div class="exercise-title">The Thinning Walk</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>One nature walk this season, specifically oriented toward the evidence of autumn and the thinning. You are looking for: the quality of the light in October/November, fungi (where, on what, in what formation), birdsong changes, the smell of decay that is not repulsive but rich, the way the skeleton of the landscape reveals itself as leaves fall.</p>
+      <p>After the walk, write one full page in the voice of a medieval peasant walking the same path — the same landscape, but experienced through an entirely different set of categories and significances. What would they notice that you ignore? What would they interpret that you simply observe?</p>
+      <div class="exercise-prompt">
+        <strong>The Specific</strong>
+        Choose one very specific thing you observed on the walk — a particular mushroom, a particular quality of light, a particular tree's response to season — and put it in both accounts: yours and the medieval voice. Notice how the same thing means differently.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 6 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">VI</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">📖 The Lore — Scholarship</div>
+        <div class="exercise-title">The Compendium Entry</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Write the folk tradition from Exercise 4 again — but this time as it would appear in an imaginary folklore compendium written about your world. Dry, scholarly, third person, with footnotes if you wish. The compendium author has done fieldwork. They are slightly baffled by what they found. They are trying to be neutral but their own assumptions keep showing.</p>
+      <div class="exercise-prompt">
+        <strong>The Form</strong>
+        Entry should include: the tradition's name and regional variant names, date and occasion, description of practice, informant quotation (someone interviewed who still observes it), and the scholar's own tentative theory about its origins (which may well be wrong). One full journal page.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 7 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">VII</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Story</div>
+        <div class="exercise-title">The Samhain Story</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Every tradition has a story told specifically at the time of the thinning — a ghost story, a cautionary tale, a myth about what happens when the boundary fails. Write the story your world tells at the equivalent of Samhain.</p>
+      <p>It should involve: a living person, a dead or otherwise-worldly person, an encounter that changes something, and an ending that is not quite resolution. It should be the kind of story that stays with you after the fire dies down.</p>
+      <div class="exercise-prompt">
+        <strong>The Voice</strong>
+        Write it in the oral tradition style — second-person address to a listener, present tense, with the rhythm of something told rather than written. <em>"You know the lane past the millpond—"</em> or similar. Let the teller be present in the text.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>V. The Closing Essay</h2>
+  <p>2–3 journal pages. This season has been the one closest to your existing practice — what did you find that was familiar? What genuinely surprised you? Has Pennick's portrait of the cunning folk changed or deepened how you understand your own practice? What does it mean that these traditions survived in England specifically — in the Fens, in the rural secrecy of guilds and fraternities? And what does your own world's cunning person tell you about what you think magic is for?</p>
+
+  <div class="closing">
+    <p>🍂</p>
+    <p style="margin-top:10px;"><em>The cunning person is named. The folk traditions observed.<br>The pattern has repeated. The Samhain story is told.</em></p>
+    <p style="margin-top:14px; font-size:0.82rem; color: #7a3a00;">Next season: <strong>Winter — The Deep Archive</strong><br>Time · Memory · The Self Across History</p>
+  </div>
+</div>
+</body>
+</html>
