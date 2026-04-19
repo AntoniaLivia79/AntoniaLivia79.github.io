@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season IV — Winter: The Deep Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5edd8;
+    --gold: #b8860b;
+    --season-color: #2a3a5a;
+    --crimson: #7a1e1e;
+    --border: #c4a96e;
+    --mist: #7a8a9a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e1e;
+    background-image: radial-gradient(ellipse at 50% 10%, rgba(40,60,100,0.5) 0%, transparent 60%);
+    font-family: 'IM Fell English', serif;
+    color: var(--ink);
+    padding: 40px 20px;
+  }
+  .page {
+    max-width: 820px; margin: 0 auto;
+    background: var(--parchment);
+    background-image: linear-gradient(180deg, #f0eedd 0%, #e8e0c5 50%, #e2d8b8 100%);
+    border: 3px solid var(--border);
+    box-shadow: 0 0 0 8px #0a0e1e, 0 0 0 10px var(--season-color), 0 0 80px rgba(0,0,0,0.9), inset 0 0 80px rgba(40,60,100,0.07);
+    padding: 55px 65px; position: relative; overflow: hidden;
+  }
+  .page::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(180deg, transparent, transparent 31px, rgba(180,150,80,0.07) 31px, rgba(180,150,80,0.07) 32px);
+    pointer-events: none;
+  }
+  .corner { position: absolute; color: var(--season-color); opacity: 0.45; font-size: 2.2rem; }
+  .corner.tl { top: 14px; left: 14px; }
+  .corner.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner.br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+
+  .season-badge { text-align: center; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 2px solid var(--border); position: relative; }
+  .season-badge::after { content: '✦  ✦  ✦'; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); background: var(--parchment); padding: 0 14px; color: var(--season-color); font-size: 0.85rem; letter-spacing: 5px; }
+  .season-number { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--season-color); margin-bottom: 10px; }
+  .season-icon-large { font-size: 3rem; margin-bottom: 10px; display: block; }
+  h1 { font-family: 'Cinzel Decorative', serif; font-size: 1.9rem; color: var(--ink); line-height: 1.25; margin-bottom: 8px; }
+  .season-tagline { font-style: italic; color: var(--season-color); font-size: 1rem; }
+
+  h2 { font-family: 'Cinzel Decorative', serif; font-size: 1rem; color: var(--crimson); margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  h3 { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--gold); margin: 22px 0 9px; }
+  p { line-height: 1.88; margin-bottom: 13px; font-size: 0.97rem; }
+  em { color: var(--crimson); }
+
+  .intro-block { background: rgba(40,60,100,0.06); border-left: 3px solid var(--season-color); padding: 20px 26px; margin: 28px 0; font-style: italic; font-size: 0.97rem; line-height: 1.9; }
+
+  .book-card { border: 1px solid var(--border); margin: 16px 0; background: rgba(255,255,255,0.22); }
+  .book-card-header { background: rgba(180,150,80,0.1); padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
+  .book-type-badge { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--season-color); color: #fff; padding: 3px 10px; flex-shrink: 0; }
+  .book-title-main { font-style: italic; color: var(--crimson); font-size: 1.02rem; }
+  .book-author-main { font-family: 'Lato', sans-serif; font-size: 0.82rem; color: #5a4a2a; margin-top: 2px; }
+  .book-card-body { padding: 14px 20px; font-size: 0.9rem; line-height: 1.75; }
+  .book-focus { margin-top: 10px; padding: 10px 14px; background: rgba(40,60,100,0.05); border-left: 2px solid var(--season-color); font-size: 0.85rem; font-style: italic; }
+  .book-focus strong { font-style: normal; font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--season-color); display: block; margin-bottom: 4px; }
+
+  .exercise { border: 1px solid var(--border); margin: 18px 0; background: rgba(255,255,255,0.18); }
+  .exercise-header { display: grid; grid-template-columns: 56px 1fr; border-bottom: 1px solid var(--border); }
+  .exercise-number { background: var(--season-color); color: #fff; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+  .exercise-title-area { padding: 12px 18px; }
+  .exercise-pillar { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mist); margin-bottom: 3px; }
+  .exercise-title { font-family: 'Cinzel Decorative', serif; font-size: 0.82rem; color: var(--crimson); }
+  .exercise-body { padding: 16px 20px; }
+  .exercise-body p { font-size: 0.9rem; margin-bottom: 10px; }
+  .exercise-body p:last-child { margin-bottom: 0; }
+  .exercise-prompt { background: rgba(122,30,30,0.04); border: 1px dashed rgba(122,30,30,0.25); padding: 12px 16px; margin-top: 12px; font-style: italic; font-size: 0.88rem; line-height: 1.7; color: #3a1a1a; }
+  .exercise-prompt strong { font-style: normal; display: block; font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); margin-bottom: 5px; }
+
+  .week-block { border: 1px solid var(--border); margin: 14px 0; }
+  .week-header { background: rgba(40,60,100,0.07); padding: 10px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+  .week-label { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--season-color); }
+  .week-theme { font-style: italic; font-size: 0.85rem; color: #4a3a1a; }
+  .week-body { padding: 12px 18px; }
+  .week-tasks { list-style: none; }
+  .week-tasks li { padding: 6px 0 6px 20px; position: relative; font-size: 0.88rem; line-height: 1.55; border-bottom: 1px dashed rgba(180,150,80,0.2); }
+  .week-tasks li:last-child { border-bottom: none; }
+  .week-tasks li::before { content: '›'; position: absolute; left: 0; color: var(--season-color); font-size: 1.1rem; top: 4px; }
+
+  .divider { text-align: center; color: var(--season-color); letter-spacing: 10px; margin: 28px 0; opacity: 0.5; font-size: 0.9rem; }
+
+  .goals-box { background: rgba(40,60,100,0.05); border: 2px solid var(--season-color); padding: 22px 26px; margin: 24px 0; }
+  .goals-box h3 { color: var(--season-color); margin: 0 0 12px; }
+  .goals-list { list-style: none; }
+  .goals-list li { padding: 7px 0 7px 22px; position: relative; font-size: 0.9rem; line-height: 1.6; border-bottom: 1px solid rgba(40,60,100,0.15); }
+  .goals-list li:last-child { border-bottom: none; }
+  .goals-list li::before { content: '✦'; position: absolute; left: 0; color: var(--season-color); font-size: 0.65rem; top: 10px; }
+
+  /* Final naming ceremony */
+  .naming-box { background: rgba(184,134,11,0.07); border: 2px solid var(--gold); padding: 24px 28px; margin: 24px 0; text-align: center; }
+  .naming-box h3 { color: var(--gold); font-size: 0.9rem; margin: 0 0 14px; }
+  .naming-box p { font-style: italic; font-size: 0.92rem; line-height: 1.85; margin: 0; }
+
+  /* Year completion block */
+  .year-complete { background: rgba(40,60,100,0.06); border: 1px solid var(--season-color); padding: 22px 26px; margin: 24px 0; }
+  .year-complete h3 { color: var(--season-color); margin: 0 0 14px; }
+  .year-complete ul { list-style: none; }
+  .year-complete ul li { padding: 7px 0 7px 22px; position: relative; font-size: 0.9rem; line-height: 1.6; border-bottom: 1px solid rgba(40,60,100,0.12); }
+  .year-complete ul li:last-child { border-bottom: none; }
+  .year-complete ul li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.65rem; top: 10px; }
+
+  .closing { text-align: center; margin-top: 44px; padding-top: 26px; border-top: 2px solid var(--border); font-style: italic; font-size: 0.92rem; color: var(--season-color); line-height: 1.9; }
+  @media(max-width:640px){ .page{padding:36px 24px;} h1{font-size:1.45rem;} }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="corner tl">❧</div><div class="corner tr">❧</div>
+  <div class="corner bl">❧</div><div class="corner br">❧</div>
+
+  <div class="season-badge">
+    <p class="season-number">The Witching Scriptorium · Season Four</p>
+    <span class="season-icon-large">❄️</span>
+    <h1>The Deep Archive</h1>
+    <p class="season-tagline">Time · Memory · The Self Across History</p>
+  </div>
+
+  <div class="intro-block">
+    Winter turns inward. Candlelight. Long evenings. The year's threads laid out on the table. This final season is about synthesis — bringing together what you have built, giving your world its history and its relationship with time, and asking the larger questions about what a year of this kind of reading has done to you. The world you began to draw in spring will receive its final layer and then its name.
+  </div>
+
+  <h2>I. Your Season Goals</h2>
+  <div class="goals-box">
+    <h3>By the end of this season you will have…</h3>
+    <ul class="goals-list">
+      <li>Read two books: one non-fiction (Alexander), one fiction (Le Guin)</li>
+      <li>Completed seven journal exercises including three story pieces</li>
+      <li>Given your world its architecture, its history, and its complete named geography</li>
+      <li>Written the Great Year-End Essay: 3 pages of personal reflection</li>
+      <li>Named the map. The Witching Scriptorium is complete.</li>
+    </ul>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>II. The Books</h2>
+
+  <div class="book-card">
+    <div class="book-card-header">
+      <span class="book-type-badge">Non-fiction</span>
+      <div>
+        <div class="book-title-main">The Timeless Way of Building</div>
+        <div class="book-author-main">— Christopher Alexander</div>
+      </div>
+    </div>
+    <div class="book-card-body">
+      <p>A surprising choice — but one that speaks directly to cathedrals, world-building, and the feeling of sacred space. Alexander is an architect and mathematician who spent decades trying to articulate why some buildings and places feel genuinely alive, while others are technically competent but dead. He calls this quality simply "the quality without a name."</p>
+      <p>His argument: great places are made by countless small decisions, each made in response to what is actually there rather than what was planned. A cathedral built over centuries by different hands often has more of this quality than one built to a single architect's design. You will find this directly applicable to both your craft and your world-building.</p>
+      <div class="book-focus">
+        <strong>Reading focus</strong>
+        The opening sections on the quality without a name, the chapters on patterns in living buildings, and Part Three on the creative process. You need not read this end-to-end — allow yourself to range, as with Baring and Cashford in Season II. But the opening 100 pages should be read in sequence.
+      </div>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-card-header">
+      <span class="book-type-badge">Fiction</span>
+      <div>
+        <div class="book-title-main">The Left Hand of Darkness</div>
+        <div class="book-author-main">— Ursula K. Le Guin</div>
+      </div>
+    </div>
+    <div class="book-card-body">
+      <p>Le Guin is the presiding spirit of serious world-building fiction — the writer who most clearly understood that an invented world is a form of thinking, not just a setting. An envoy from a galactic federation arrives on a cold, isolated planet where no one is male or female except for brief periodic cycles. The novel is about gender, yes — but also about loyalty, about what it means to be an alien in every world, and about the long northern winter as a metaphor for everything that requires endurance.</p>
+      <p>The world of Gethen is one of the most completely realised in fiction. Le Guin built it by asking one very specific anthropological question and following it honestly to its conclusions — paying attention to how it would change everything from politics to mythology to what love looks like.</p>
+      <div class="book-focus">
+        <strong>Reading focus</strong>
+        The myth fragments and historical texts Le Guin interpolates throughout — these are the skeleton of her world-building, and they model exactly how a world's mythology should feel. Notice how the cold landscape is not backdrop but participant. Notice what the envoy, Genly Ai, persistently fails to understand — and why.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>III. The Weekly Plan</h2>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 1–3</span>
+      <span class="week-theme">The quality without a name. Space and the sacred.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Read the opening 100 pages of Alexander in sequence</li>
+        <li>Complete Exercise 1: The Cathedral of your world — its quality and what it means</li>
+        <li>Begin <em>The Left Hand of Darkness</em> — allow the strangeness to settle</li>
+        <li>Research note session: what does Alexander's framework reveal about the cathedrals and sacred sites you have visited this year?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 4–6</span>
+      <span class="week-theme">Le Guin. The alien envoy. The long winter.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Finish <em>The Left Hand of Darkness</em></li>
+        <li>Complete Exercise 2: The Myth Fragments — write two short mythological texts in the style of Le Guin's interpolations</li>
+        <li>Complete Exercise 3: The Chronicle Entry — your world's history told in medieval style</li>
+        <li>Continue ranging through Alexander as feels fruitful</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 7–9</span>
+      <span class="week-theme">The alien in your world. The thing that cannot be explained.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Complete Exercise 4: The Envoy — someone who comes to your world from outside it</li>
+        <li>Complete Exercise 5: The History in Objects — what your world's people carry and what it means</li>
+        <li>Review the year's journal: what threads run through all four seasons that you did not plan?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-label">Weeks 10–12</span>
+      <span class="week-theme">The naming. The great essay. The world complete.</span>
+    </div>
+    <div class="week-body">
+      <ul class="week-tasks">
+        <li>Complete Exercise 6: The Scholar's Retrospect — looking back across a life spent studying your world</li>
+        <li>Complete Exercise 7: The Naming — return to the map, name everything</li>
+        <li>Write the Great Year-End Essay: 3 journal pages</li>
+        <li>Rest. The Scriptorium is complete.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>IV. The Journal Exercises</h2>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">I</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Scholarship & Story</div>
+        <div class="exercise-title">The Cathedral</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Using Alexander's ideas about the quality without a name and about living structure, describe the most important building in your invented world. Not its history, not its symbolism — its physical experience, from the outside to the deepest inner space.</p>
+      <p>What is the quality of its light? How does the acoustic change as you move through it? What small asymmetries betray its centuries of different builders? What do people do there that they do nowhere else?</p>
+      <div class="exercise-prompt">
+        <strong>The Question</strong>
+        Using Alexander's lens: what does this building tell you about what your world values? Is it a building that makes people feel small — or one that makes them feel held? Could it have been built any other way, or was it inevitable given the landscape and the hands that made it?
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">II</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Story</div>
+        <div class="exercise-title">The Myth Fragments</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Le Guin interpolates her novel with myth fragments, folk tales, and historical texts that feel genuinely ancient — brief, strange, not fully explained. They make the world feel larger than the story it contains.</p>
+      <p>Write two short mythological texts in this style for your invented world — each no more than half a page. They should feel like fragments from a larger whole. They should not directly explain any of the mythology you have already written — instead, they should gesture toward it from an oblique angle, like light that illuminates by not looking directly at the thing.</p>
+      <div class="exercise-prompt">
+        <strong>The Form</strong>
+        One should feel very old — possibly a cosmological fragment, a creation-adjacent story. One should feel more recent — a local legend, a cautionary tale from a specific region of your map. Both should contain at least one image you cannot fully explain yourself.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">III</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">📖 The Lore — Scholarship</div>
+        <div class="exercise-title">The Chronicle Entry</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Write one page of your world's history as if from an actual medieval chronicle — formal, terse, recording extraordinary events in the dry third person of someone who witnessed them but has learned not to show too much feeling in official documents.</p>
+      <p>Choose a moment of rupture: a plague that changed the social order, a conquest, a miracle that was officially suppressed, a flood that revealed something buried. Date it according to your world's own calendar.</p>
+      <div class="exercise-prompt">
+        <strong>The Voice</strong>
+        Medieval chroniclers were not neutral. They had patrons, agendas, fears. Allow these to leak into the prose — an uncomfortable emphasis, a name conspicuously omitted, a line that seems to contradict the official story. The document should feel like it is concealing as much as it reveals.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 4 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">IV</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Story</div>
+        <div class="exercise-title">The Envoy</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Le Guin's envoy, Genly Ai, is the device through which we learn the world — because he is learning it too, and getting it wrong in ways that are illuminating. Write a scene in which someone arrives in your invented world from outside it — perhaps from a neighbouring country, a distant culture, or even our world.</p>
+      <p>The scene should be in the envoy's voice. They are trying to describe what they see to someone back home. They get some things right and some things completely wrong. Their misreadings tell us what they expected to find — and what your world has that their world lacks.</p>
+      <div class="exercise-prompt">
+        <strong>The Specific</strong>
+        Choose one specific element of your world — a folk custom, a piece of architecture, an aspect of the cunning craft, a tree — and show the envoy trying and failing to make sense of it. Their failure is the most interesting part.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 5 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">V</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — Creation</div>
+        <div class="exercise-title">The History in Objects</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Choose five ordinary objects that people in your world carry, use, or keep in their homes. For each, write three sentences: what it is, what it is for, and what it means — the layer of significance beneath the practical. These are not magical objects. They are the kind of things that accumulate significance simply by being used across generations.</p>
+      <p>Examples: a particular kind of bread made only at one season; a type of clasp worn by a specific guild; the way doors face in a particular region; what is planted on a new grave.</p>
+      <div class="exercise-prompt">
+        <strong>The Connection</strong>
+        At least one of your five objects should connect to something you built in an earlier season — the goddess from Season II, the folk tradition from Season III, the founding wound from Season I. Let the threads show.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 6 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">VI</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">📖 The Lore — Scholarship</div>
+        <div class="exercise-title">The Scholar's Retrospect</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Write one page in the voice of an elderly scholar in your world, looking back across a lifetime of study. They have spent their life trying to understand the founding wound, or the origins of the goddess cult, or the true history of the cunning folk. They have not entirely succeeded. They are making peace with what they do not know.</p>
+      <p>This is an exercise in inhabiting a consciousness shaped by your world's scholarship and history — and in practicing the particular kind of wisdom that comes from long engagement with a subject that resists resolution.</p>
+      <div class="exercise-prompt">
+        <strong>The Tone</strong>
+        Not mournful — wry, curious, still wondering. The scholar is not bitter about the unanswered questions. They have come to find them more interesting than the answers would have been.
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 7 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-number">VII</div>
+      <div class="exercise-title-area">
+        <div class="exercise-pillar">🌍 The World — The Final Act</div>
+        <div class="exercise-title">The Naming</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Return to the map you drew in Season I — the map with no names. Name everything. The great forest, the cathedral city, the marsh, the crossroads, the holy well, the hidden place from beneath the place, the mountain or hill. Name the world itself.</p>
+      <p>Names in the great invented worlds are never arbitrary. Tolkien spent decades on his. Le Guin's names carry phonaesthetics — the sounds themselves suggest something. Your names do not need to be in an invented language — they can be archaic English, Welsh, Latin fragments, kennings, simple descriptive names that have calcified into proper nouns over generations.</p>
+      <div class="exercise-prompt">
+        <strong>The World's Name</strong>
+        The last name you assign should be the world itself. What do its people call it? Not a grandiose cosmic name — the name ordinary people use when they say "nowhere else in the world." Small. Specific. True.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <div class="naming-box">
+    <h3>The Map is Complete</h3>
+    <p>You began with a blank map and a question. You have spent a year populating it with a sacred landscape, a goddess, a mythology, folk customs, cunning folk, architecture, chronicle, fragments of myth, and the objects ordinary people carry. The map has a name now. You are the only scholar who has been here.</p>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <h2>V. The Great Year-End Essay</h2>
+  <p>The most important piece of writing in the curriculum. Three journal pages, written without notes in front of you, in your own voice, looking back at the year.</p>
+  <p>Some questions to move through — not all of them, whichever call to you: What surprised you most in the year's reading? What book changed something you thought you understood? Has any of this shifted your practice, even slightly? What does the invented world you have built tell you about what you actually find sacred, beautiful, or frightening? What will you take into next year? What would you tell yourself at the start of the year — the version of you who first drew that blank map?</p>
+  <p>Write until you reach something true. Then stop.</p>
+
+  <div class="divider">· · ·</div>
+
+  <h2>VI. What You Have Made</h2>
+  <div class="year-complete">
+    <h3>By completing The Witching Scriptorium, you have…</h3>
+    <ul>
+      <li>Read 8 books across the year, alternating fiction and scholarship</li>
+      <li>Engaged with sacred landscape, comparative mythology, folk magic, and world-building theory</li>
+      <li>Completed 26 journal exercises spanning research, observation, and creative story-writing</li>
+      <li>Made at least 4 real-world outings: nature walks and sacred site visits</li>
+      <li>Written 4 seasonal closing essays and 1 great year-end reflection</li>
+      <li>Built a complete invented world from a blank map: named, mythologised, populated, historied</li>
+      <li>Created a handwritten grimoire of learning that belongs entirely to you</li>
+    </ul>
+  </div>
+
+  <div class="closing">
+    <p>❄️</p>
+    <p style="margin-top:10px;"><em>The archive is deep. The world is named. The year is held.<br>The Witching Scriptorium is closed — until you open it again.</em></p>
+    <p style="margin-top:18px; font-size:0.82rem; color: #3a4a7a; font-style:normal;">
+      What next? The Reserve Shelf awaits. Or begin a new world.<br>Or simply sit with what you have made, this winter, by candlelight.
+    </p>
+  </div>
+</div>
+</body>
+</html>
