@@ -6,21 +6,54 @@
   <title>World Map - Wealdenshire</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .map-image { max-width: 100%; height: auto; border: 1px solid #3b4261; border-radius: 8px; display:block; }
-    /* Slightly brighten and increase contrast to improve legend readability on dark backgrounds */
-    .map-image { filter: brightness(1.25) contrast(1.15); }
+    /* Tunable map presentation — adjust these if needed */
+    :root {
+      --map-brightness: 1.0;  /* 1.0 = original */
+      --map-contrast:   1.0;
+      --map-saturate:   1.0;
+    }
+    .map-image { max-width: 100%; height: auto; border: 1px solid #3b4261; border-radius: 8px; display:block; filter: brightness(var(--map-brightness)) contrast(var(--map-contrast)) saturate(var(--map-saturate)); }
     .map-note { color:#9aa5ce; }
     .map-links a { margin-right: 10px; }
+
+    /* On-page legend, styled to match site cards and maximize readability */
+    .legend { border: 1px solid #3b4261; border-radius: 8px; padding: 12px; margin: 16px 0; background:#1a1b26; }
+    .legend h3 { margin: 0 0 8px 0; color:#50fa7b; }
+    .legend ol { margin: 0 0 0 1.15em; padding: 0; }
+    .legend li { margin: 6px 0; line-height: 1.4; color:#c0caf5; }
+
+    /* Preset alternatives:
+       Mild:    1.25 / 1.15 / 1.10
+       Strong:  1.45 / 1.30 / 1.20
+    */
   </style>
 </head>
 <body>
   <div class="container">
     <div class="blurb">
       <h2>Wealdenshire World Map</h2>
-      <p class="map-note">Static map for the stories. The legend has been brightened for readability.</p>
+      <p class="map-note">The county of Wealdenshire.</p>
       <a href="writing_map/foundational_map_annotated.png" target="_blank" rel="noopener noreferrer">
-        <img class="map-image" src="writing_map/foundational_map_annotated.png" alt="Annotated map of Wealdenshire with legend, brightened for readability." />
+        <img class="map-image" src="writing_map/foundational_map_annotated.png" alt="Annotated map of Wealdenshire." />
       </a>
+
+      <section class="legend" aria-labelledby="map-legend-heading">
+        <h3 id="map-legend-heading">Legend</h3>
+        <ol>
+          <li>The North Downs (chalk hills and the site of burial mounds)</li>
+          <li>Village of Downstow (Holy place of the Downs)</li>
+          <li>Village of Highfold (The High Fields)</li>
+          <li>Isle of Haligey (an island town with an abbey, elevated above an area of wetland)</li>
+          <li>Village of Merefold</li>
+          <li>Broadmere Lake</li>
+          <li>The River Mallow</li>
+          <li>Village of Holtleigh</li>
+          <li>The Lady Well (a sacred spring associated with Saint Aelfwynn)</li>
+          <li>Hangerwood Forest</li>
+          <li>Holtmere Forest</li>
+          <li>Holtleigh Weald (The Great Forest)</li>
+        </ol>
+      </section>
       <div class="writing-nav">
         <h4><a href="writing.html">Back to Creative Writing</a></h4>
         <h4><a href="index.html">Back to Home</a></h4>
