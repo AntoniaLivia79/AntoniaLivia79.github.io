@@ -3,21 +3,21 @@
     "title": "The Isle of Ewelun",
     "date": "2026-08-12",
     "href": "writing_story_1.html",
-    "excerpt": "A tale set on the windswept isle of Ewelun, where shoreline myths stir and old names wake.",
+    "excerpt": "A traveller's tale set on the mysterious isle of Ewelun.",
     "tags": ["story", "mythic", "wealdenshire"]
   },
   {
     "title": "The Well of Saint Aelfwynn",
     "date": "2026-08-12",
     "href": "writing_story_2.html",
-    "excerpt": "Pilgrims speak of a hidden well and the quiet miracles that follow those who find it.",
+    "excerpt": "Pilgrims speak of a sacred well and the quiet miracles that follow those who find it.",
     "tags": ["story", "folklore", "wealdenshire"]
   },
   {
     "title": "World Map: The County of Wealdenshire",
     "date": "2026-08-12",
     "href": "writing_map.html",
-    "excerpt": "An interactive map of the world these stories inhabit.",
+    "excerpt": "A map of the world these stories inhabit.",
     "tags": ["map", "world-building"]
   }
 ]

@@ -6,19 +6,21 @@
   <title>World Map - Wealdenshire</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .map-frame { width: 100%; aspect-ratio: 16/10; border: 1px solid #3b4261; border-radius: 8px; }
+    .map-image { max-width: 100%; height: auto; border: 1px solid #3b4261; border-radius: 8px; display:block; }
+    /* Slightly brighten and increase contrast to improve legend readability on dark backgrounds */
+    .map-image { filter: brightness(1.25) contrast(1.15); }
     .map-note { color:#9aa5ce; }
+    .map-links a { margin-right: 10px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="blurb">
       <h2>Wealdenshire World Map</h2>
-      <p class="map-note">Interactive map for the stories. If the embed does not load, use the direct link below.</p>
-      <iframe class="map-frame" title="Wealdenshire Map" src="writing_map/The%20County%20of%20Wealdenshire%2034a7698366f780c8bed6c38f18760605.html"></iframe>
-      <div class="map-links">
-        <h4><a href="writing_map/The%20County%20of%20Wealdenshire%2034a7698366f780c8bed6c38f18760605.html" target="_blank" rel="noopener noreferrer">Open Map in a new tab</a></h4>
-      </div>
+      <p class="map-note">Static map for the stories. The legend has been brightened for readability.</p>
+      <a href="writing_map/foundational_map_annotated.png" target="_blank" rel="noopener noreferrer">
+        <img class="map-image" src="writing_map/foundational_map_annotated.png" alt="Annotated map of Wealdenshire with legend, brightened for readability." />
+      </a>
       <div class="writing-nav">
         <h4><a href="writing.html">Back to Creative Writing</a></h4>
         <h4><a href="index.html">Back to Home</a></h4>
