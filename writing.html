@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Writing - Antonia's Space</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .story { border: 1px solid #3b4261; border-radius: 8px; padding: 12px; margin: 16px 0; background:#1a1b26; }
+    .story h4 { margin: 0 0 6px 0; }
+    .story-date { color: #7dcfff; font-weight: 600; }
+    .tags { margin-top: 6px; color:#9aa5ce; }
+    .tags code { background:#2a2e3f; border:1px solid #3b4261; border-radius:4px; padding:1px 4px; margin-right:4px; }
+    .writing-nav a { margin-right: 10px; }
+  </style>
+</head>
+<body data-page="writing">
+  <div class="container">
+    <div class="blurb">
+      <h2>Creative Writing</h2>
+      <p>A small hub for short stories and world-building notes.</p>
+      <div class="writing-nav">
+        <h4><a href="writing_map.html">World Map</a></h4>
+        <h4><a href="index.html">Back to Home</a></h4>
+      </div>
+      <div id="writing-root" aria-live="polite"></div>
+    </div>
+  </div>
+  <script src="writing.js"></script>
+</body>
+</html>
