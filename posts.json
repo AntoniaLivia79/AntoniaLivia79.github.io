@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-19",
+    "tags": ["Picomite", "Pico", "PicoCalc","RP2350", "BASIC", "games"],
+    "paragraphs": [
+      "As a weekend project I have been porting a simplified version of the TI-99/4a role playing game Tunnels of Doom to the PicoCalc (using Picomite BASIC). Over the last few months I have been porting several vintage adventure/ role playing games over to the PicCalc including the Usborne Publishing Dungeon of Doom game (a clone of Temple of Apshai) and some Scott Adams adventure games. These are all available from my GitHub repositories."
+    ],
+    "images": [
+      { "src": "files/images/tunnels_of_doom.png", "alt": "A screenshot of the Tunnels of Doom game running in Picomite BASIC on a PicoCalc." }
+    ]
+  },
+  {
     "date": "2026-08-12",
     "tags": ["writing", "folklore"],
     "paragraphs": [
